@@ -2,36 +2,34 @@
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
+// As informações gerais sobre um assembly são controladas através do seguinte
+// conjunto de atributos a seguir. Altere esses valores de atributo para modificar as informações
+// associadas a um assembly.
 [assembly: AssemblyTitle("APS.Presentation.Web")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("APS.Presentation.Web")]
-[assembly: AssemblyCopyright("Copyright © 2018 ")]
+[assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
-// Setting ComVisible to false makes the types in this assembly not visible 
-// to COM components.  If you need to access a type in this assembly from 
-// COM, set the ComVisible attribute to true on that type.
+// Definir ComVisible como falso torna não visíveis os tipos neste assembly
+// para componentes COM. Caso precise acessar um tipo neste assembly a partir de
+// COM, defina o atributo ComVisible como true nesse tipo.
 [assembly: ComVisible(false)]
 
-// The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("729e0c5f-128a-4fe4-b7dd-180d3337194d")]
+// A GUID a seguir será referente à ID do typelib se este projeto for exposto ao COM
+[assembly: Guid("611a5787-5829-4b36-8f61-5f9a67af6efb")]
 
-// Version information for an assembly consists of the following four values:
-//      Value           Semantic Versioning 2.0 (http://semver.org/)
-//      =============   ============================================
-//      Major Version   Increment when you make incompatible API changes
-//      Minor Version   Increment when you add functionality in a backwards-compatible manner
-//      Build Number    Increment when you make backwards-compatible bug fixes
-//      Revision        Not used
+// As informações de versão de um assembly consistem nos seguintes quatro valores:
 //
-// You can specify all the values or you can default the Build and Revision Numbers 
-// by using the '*' as shown below:
-// [assembly: AssemblyVersion("1.0.*")]
+//      Versão Principal
+//      Versão Secundária
+//      Número da Versão
+//      Revisão
+//
+// É possível especificar todos os valores ou definir como padrão os números de revisão e de versão
+// usando o '*' como mostrado abaixo:
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]

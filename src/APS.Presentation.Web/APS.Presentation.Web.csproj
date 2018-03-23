@@ -9,7 +9,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{24BCBCB0-B1E4-4475-8492-B9799A6DF2EC}</ProjectGuid>
+    <ProjectGuid>{90308361-7C7F-4E54-9AFC-B64FA60ACDCC}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -52,6 +52,12 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="SimpleInjector, Version=4.0.12.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
       <HintPath>..\packages\SimpleInjector.4.0.12\lib\net45\SimpleInjector.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleInjector.Integration.Web, Version=4.0.12.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.Integration.Web.4.0.12\lib\net40\SimpleInjector.Integration.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleInjector.Integration.Web.Mvc, Version=4.0.12.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.Integration.Web.Mvc.4.0.12\lib\net40\SimpleInjector.Integration.Web.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -217,13 +223,13 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\APS.Infra.CrossCutting.Ioc\APS.Infra.CrossCutting.IoC.csproj">
-      <Project>{5c19ccc8-54b1-466e-9f8b-f98f03eef934}</Project>
-      <Name>APS.Infra.CrossCutting.IoC</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\APS.Application\APS.Application.csproj">
+    <ProjectReference Include="..\src\APS.Application\APS.Application.csproj">
       <Project>{136b5e4d-d507-4aea-8941-e49ec7f871eb}</Project>
       <Name>APS.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\src\APS.Infra.CrossCutting.Ioc\APS.Infra.CrossCutting.IoC.csproj">
+      <Project>{5c19ccc8-54b1-466e-9f8b-f98f03eef934}</Project>
+      <Name>APS.Infra.CrossCutting.IoC</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
@@ -242,9 +248,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>63376</DevelopmentServerPort>
+          <DevelopmentServerPort>61849</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:63376/</IISUrl>
+          <IISUrl>http://localhost:61849/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

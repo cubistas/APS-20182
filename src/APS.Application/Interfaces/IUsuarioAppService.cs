@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace APS.Application.Interfaces
 {
-    public interface IUsuarioAppService
+    public interface IUsuarioAppService:IDisposable
     {
         
         string OlaPutedo();

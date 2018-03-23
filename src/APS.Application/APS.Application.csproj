@@ -60,5 +60,15 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\APS.Domain.Core\APS.Domain.Core.csproj">
+      <Project>{68E93F29-18A6-40FC-B6CE-6AC05F3E54AF}</Project>
+      <Name>APS.Domain.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\APS.Domain\APS.Domain.csproj">
+      <Project>{F277F7BB-117A-45BC-9B56-2B745B59F2AC}</Project>
+      <Name>APS.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,4 +1,5 @@
 ﻿using APS.Infra.CrossCutting.IoC;
+using SimpleInjector.Integration.Web.Mvc;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -10,7 +11,9 @@ namespace APS.Presentation.Web
     {
         protected void Application_Start()
         {
-            DependencyResolver.SetResolver(SimpleInjectorContainer.RegisterServices());
+            DependencyResolver.SetResolver(new SimpleInjectorDependencyResolver(
+                    SimpleInjectorContainer.RegisterServices()
+                ));
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

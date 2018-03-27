@@ -1,5 +1,6 @@
 ﻿using APS.Application.Interfaces;
 using APS.Domain.Interfaces.Service;
+using System;
 
 namespace APS.Application.AppService
 {
@@ -14,6 +15,7 @@ namespace APS.Application.AppService
         public void Dispose()
         {
             usuarioService.Dispose();
+            GC.SuppressFinalize(this);
         }
 
         public string OlaPutedo()

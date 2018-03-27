@@ -32,6 +32,7 @@ namespace APS.Infra.CrossCutting.IoC
         {
             AplicationServiceModules.Register(container);
             ServiceModules.Register(container);
+            RepositoryModules.Register(container);
         }
     }
 }

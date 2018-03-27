@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5C19CCC8-54B1-466E-9F8B-F98F03EEF934}</ProjectGuid>
+    <ProjectGuid>{F29BD88C-0CC9-43EF-8027-D146C33E7265}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>APS.Infra.CrossCutting.Ioc</RootNamespace>
-    <AssemblyName>APS.Infra.CrossCutting.Ioc</AssemblyName>
+    <RootNamespace>APS.Infra.Data.Context.Repository</RootNamespace>
+    <AssemblyName>APS.Infra.Data.Context.Repository</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -36,23 +36,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
-    </Reference>
-    <Reference Include="SimpleInjector, Version=4.1.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SimpleInjector.4.1.0\lib\net45\SimpleInjector.dll</HintPath>
-    </Reference>
-    <Reference Include="SimpleInjector.Integration.Web, Version=4.1.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SimpleInjector.Integration.Web.4.1.0\lib\net40\SimpleInjector.Integration.Web.dll</HintPath>
-    </Reference>
-    <Reference Include="SimpleInjector.Integration.Web.Mvc, Version=4.1.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SimpleInjector.Integration.Web.Mvc.4.1.0\lib\net40\SimpleInjector.Integration.Web.Mvc.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Globalization" />
-    <Reference Include="System.Runtime" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -61,42 +47,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IoC.cs" />
-    <Compile Include="Modules\AplicationServiceModules.cs" />
-    <Compile Include="Modules\RepositoryModules.cs" />
-    <Compile Include="Modules\ServiceModules.cs" />
+    <Compile Include="EntityFramework\Usuario\UsuarioRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup />
-  <ItemGroup>
-    <ProjectReference Include="..\APS.Application\APS.Application.csproj">
-      <Project>{136b5e4d-d507-4aea-8941-e49ec7f871eb}</Project>
-      <Name>APS.Application</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\APS.Domain.Core\APS.Domain.Core.csproj">
-      <Project>{68e93f29-18a6-40fc-b6ce-6ac05f3e54af}</Project>
-      <Name>APS.Domain.Core</Name>
-    </ProjectReference>
     <ProjectReference Include="..\APS.Domain\APS.Domain.csproj">
-      <Project>{F277F7BB-117A-45BC-9B56-2B745B59F2AC}</Project>
+      <Project>{f277f7bb-117a-45bc-9b56-2b745b59f2ac}</Project>
       <Name>APS.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\APS.Infra.Data.Context.Repository\APS.Infra.Data.Context.Repository.csproj">
-      <Project>{F29BD88C-0CC9-43EF-8027-D146C33E7265}</Project>
-      <Name>APS.Infra.Data.Context.Repository</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\APS.Infra.Data.Context\APS.Infra.Data.Context.csproj">
-      <Project>{DB091B3F-41B4-455D-A238-83EBE0500BA1}</Project>
-      <Name>APS.Infra.Data.Context</Name>
     </ProjectReference>
     <ProjectReference Include="..\APS.Infra.Data.Core\APS.Infra.Data.Core.csproj">
       <Project>{151DB2E2-7096-497A-86D9-F2542C485566}</Project>
       <Name>APS.Infra.Data.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Interfaces\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

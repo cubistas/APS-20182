@@ -231,6 +231,10 @@
       <Project>{5c19ccc8-54b1-466e-9f8b-f98f03eef934}</Project>
       <Name>APS.Infra.CrossCutting.IoC</Name>
     </ProjectReference>
+    <ProjectReference Include="..\APS.Infra.CrossCutting.Session\APS.Infra.CrossCutting.Session.csproj">
+      <Project>{2ad4a1e5-3c48-4392-ba51-bc9699c2dbec}</Project>
+      <Name>APS.Infra.CrossCutting.Session</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -246,7 +250,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>56771</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

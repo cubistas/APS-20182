@@ -1,4 +1,5 @@
-﻿using APS.Infra.CrossCutting.IoC;
+﻿using APS.Application.AutoMapper;
+using APS.Infra.CrossCutting.IoC;
 using SimpleInjector.Integration.Web.Mvc;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,7 @@ namespace APS.Presentation.Web
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            AutoMapperConfig.RegisterMappings();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using APS.Application.AutoMapper.ViewModelToDomain;
+using AutoMapper;
 
 namespace APS.Application.AutoMapper
 {
@@ -11,7 +12,7 @@ namespace APS.Application.AutoMapper
 
         public ViewModelToDomainMappingProfile()
         {
-            //GenreMap.Map(this);
+            UsuarioMap.Map(this);
         }
     }
 }

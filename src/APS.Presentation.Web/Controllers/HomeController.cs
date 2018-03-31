@@ -1,4 +1,5 @@
 ﻿using APS.Application.Interfaces;
+using APS.Application.ViewModel.Usuario;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,8 +25,8 @@ namespace APS.Presentation.Web.Controllers
 
         public ActionResult About()
         {
+            usuarioAppService.Cadastrar(new CadastroViewModel { Nome = "ramon", Login = "oi", Senha = "y123#$" });
             ViewBag.Message = usuarioAppService.OlaPutedo();
-
             return View();
         }
 

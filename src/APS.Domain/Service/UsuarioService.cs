@@ -4,33 +4,29 @@ using APS.Domain.Models.Usurios;
 using System.Data.Entity;
 using System.Linq;
 using APS.Domain.Interfaces.Repository.Usuario;
+using APS.Domain.Core.Interface;
 
 namespace APS.Domain.Service
 {
-    public sealed class UsuarioService :ServiceCommon, IUsuarioService
+    public sealed class UsuarioService: ServiceCRUD<Usuario>, IUsuarioService
     {
+        
 
-        private readonly IUsuarioRepository usuarioRepository;
-
-        public UsuarioService(IUsuarioRepository usuarioRepository)
+        public UsuarioService(IUsuarioRepository usuarioRepository, IUnitOfWork unitOfWork) :base(unitOfWork, usuarioRepository)
         {
-            this.usuarioRepository = usuarioRepository;
-        }
-
-        public void Dispose()
-        {
-
+            
         }
 
         public string Mensagem()
         {
-            var usuarios = usuarioRepository.All().ToList();
+            var teste = BuscarTodos().ToList();
             return "Oi, sucesso!!!";
         }
 
-        public bool Validar()
+
+        public override void Dispose()
         {
-            return true;
+
         }
     }
 }

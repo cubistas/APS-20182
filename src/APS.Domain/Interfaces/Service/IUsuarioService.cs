@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace APS.Domain.Interfaces.Service
 {
-    public interface IUsuarioService: IService
+    public interface IUsuarioService: IServiceCRUD<Models.Usurios.Usuario>
     {
         string Mensagem();
     }

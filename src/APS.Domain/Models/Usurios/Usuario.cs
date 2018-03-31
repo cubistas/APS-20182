@@ -9,8 +9,30 @@ namespace APS.Domain.Models.Usurios
 {
     public sealed class Usuario : Entity
     {
-        public string Nome { get; set; }
-        public string Senha { get; set; }
-        public string Login { get; set; }
+
+        public static Usuario CriarNovo(
+                string nome,
+                string senha,
+                string login
+            )
+        {
+            return new Usuario(0)
+            {
+                Login = login,
+                Nome = nome,
+                Senha = senha
+            };
+        }
+
+        public Usuario(long id)
+        {
+            Id = id;
+        }
+
+        protected Usuario() { }
+
+        public string Nome { get; private set; }
+        public string Senha { get; private set; }
+        public string Login { get; private set; }
     }
 }

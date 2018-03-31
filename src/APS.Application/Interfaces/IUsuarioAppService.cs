@@ -1,4 +1,5 @@
-﻿using MvcMusicStore.Application.Interfaces.Common;
+﻿using APS.Application.ViewModel.Usuario;
+using MvcMusicStore.Application.Interfaces.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace APS.Application.Interfaces
 {
     public interface IUsuarioAppService:IDisposable
     {
-        
+        void Cadastrar(CadastroViewModel cadastroViewModel);
         string OlaPutedo();
     }
 }

@@ -8,6 +8,6 @@ namespace APS.Domain.Core.Interface
 {
     public interface IService:IDisposable
     {
-        bool Validar();
+        
     }
 }

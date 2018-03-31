@@ -3,9 +3,10 @@
 namespace APS.Application.AutoMapper
 {
     public class AutoMapperConfig
-    {        public static void RegisterMappings()
+    {
+        public static void RegisterMappings()
         {
-            Mapper.Initialize(x =>
+             Mapper.Initialize(x =>
             {
                 x.AddProfile<DomainToViewModelMappingProfile>();
                 x.AddProfile<ViewModelToDomainMappingProfile>();

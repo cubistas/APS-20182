@@ -1,4 +1,5 @@
-﻿using APS.Domain.Core.Interface;
+﻿using APS.Domain.Core.Exception;
+using APS.Domain.Core.Interface;
 using APS.Infra.Data.Core.Interfaces;
 using System;
 using System.Data.Entity.Validation;
@@ -54,8 +55,7 @@ namespace APS.Infra.Data.Core
                         .ToList()
                             .ForEach(x => errorMessage.AppendLine(x));
                 }
-
-                return false;
+                throw new ServiceException(errorMessage.ToString());
             }
         }
 

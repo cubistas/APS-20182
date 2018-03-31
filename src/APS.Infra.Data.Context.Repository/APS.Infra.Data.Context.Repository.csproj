@@ -47,10 +47,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntityFramework\Usuario\Common\Repository.cs" />
     <Compile Include="EntityFramework\Usuario\UsuarioRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\APS.Domain.Core\APS.Domain.Core.csproj">
+      <Project>{68E93F29-18A6-40FC-B6CE-6AC05F3E54AF}</Project>
+      <Name>APS.Domain.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\APS.Domain\APS.Domain.csproj">
       <Project>{f277f7bb-117a-45bc-9b56-2b745b59f2ac}</Project>
       <Name>APS.Domain</Name>

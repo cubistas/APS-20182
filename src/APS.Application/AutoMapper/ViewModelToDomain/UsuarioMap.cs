@@ -1,0 +1,21 @@
+﻿using APS.Application.ViewModel.Usuario;
+using APS.Domain.Models.Usurios;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace APS.Application.AutoMapper.ViewModelToDomain
+{
+    public sealed class UsuarioMap
+    {
+        public static void Map(ViewModelToDomainMappingProfile profile)
+        {
+            profile.CreateMap<CadastroViewModel, Usuario>()
+                .ConvertUsing(x =>
+                    Usuario.CriarNovo(x.Nome, x.Senha, x.Login)
+                );
+        }
+    }
+}

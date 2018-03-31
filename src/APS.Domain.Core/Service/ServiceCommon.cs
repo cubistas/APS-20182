@@ -7,14 +7,18 @@ using System.Threading.Tasks;
 
 namespace APS.Domain.Core.Service
 {
-    public class ServiceCommon
+    public abstract class ServiceCommon
     {
+        private readonly IUnitOfWork unitOfWork;
 
-        protected ServiceCommon()
+        protected ServiceCommon(IUnitOfWork unitOfWork)
         {
-
+            this.unitOfWork = unitOfWork;
         }
 
-        
+        protected void Commit()
+        {
+            unitOfWork.Commit();
+        }
     }
 }

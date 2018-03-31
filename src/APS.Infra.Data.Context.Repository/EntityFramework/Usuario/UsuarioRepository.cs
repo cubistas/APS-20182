@@ -1,4 +1,5 @@
 ﻿using APS.Domain.Interfaces.Repository.Usuario;
+using APS.Infra.Data.Context.Repository.EntityFramework.Usuario.Common;
 using APS.Infra.Data.Core.Interfaces;
 using System;
 using System.Collections;
@@ -10,20 +11,14 @@ using UsuarioModel = APS.Domain.Models.Usurios.Usuario;
 
 namespace APS.Infra.Data.Context.Repository.EntityFramework.Usuario
 {
-    public sealed class UsuarioRepository : IUsuarioRepository
+    public sealed class UsuarioRepository: Repository<UsuarioModel> ,IUsuarioRepository
     {
 
-        private readonly IDbContext dbContext;
 
-        public UsuarioRepository(IDbContext dbContext)
+        public UsuarioRepository(IDbContext dbContext):base(dbContext)
         {
-            this.dbContext = dbContext;
         }
-
-        public IEnumerable<UsuarioModel> All()
-        {
-            return dbContext.Set<UsuarioModel>().AsEnumerable();
-        }
+       
         
     }
 }

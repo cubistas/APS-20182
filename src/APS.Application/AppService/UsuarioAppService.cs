@@ -4,6 +4,7 @@ using System;
 using APS.Application.ViewModel.Usuario;
 using AutoMapper;
 using APS.Domain.Models.Usurios;
+using System.Collections.Generic;
 
 namespace APS.Application.AppService
 {
@@ -17,21 +18,39 @@ namespace APS.Application.AppService
             this.mapper = mapper;
         }
 
+        public IEnumerable<CadastroViewModel> BuscarTodos()
+        {
+            return mapper.Map<IEnumerable<CadastroViewModel>>(usuarioService.BuscarTodos());
+        }
+
         public void Cadastrar(CadastroViewModel cadastroViewModel)
         {
             var usuario = mapper.Map<Usuario>(cadastroViewModel);
             usuarioService.Cadastrar(usuario);
         }
 
+        public void Atualizar(CadastroViewModel cadastroViewModel)
+        {
+            var usuario = mapper.Map<Usuario>(cadastroViewModel);
+            usuarioService.Atualizar(usuario);
+        }
+
+        public CadastroViewModel BuscarPorId(long id)
+        {
+            return mapper.Map<CadastroViewModel>(
+                usuarioService.BuscarPorId(id)
+            );
+        }
+
+        public void Remover(long id)
+        {
+            usuarioService.Remover(id);
+        }
+
         public void Dispose()
         {
             usuarioService.Dispose();
             GC.SuppressFinalize(this);
-        }
-
-        public string OlaPutedo()
-        {
-            return usuarioService.Mensagem();
         }
     }
 }

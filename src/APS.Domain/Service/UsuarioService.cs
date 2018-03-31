@@ -5,10 +5,11 @@ using System.Data.Entity;
 using System.Linq;
 using APS.Domain.Interfaces.Repository.Usuario;
 using APS.Domain.Core.Interface;
+using APS.Domain.Core.Exception;
 
 namespace APS.Domain.Service
 {
-    public sealed class UsuarioService: ServiceCRUD<Usuario>, IUsuarioService
+    public class UsuarioService: ServiceCRUD<Usuario>, IUsuarioService
     {
         
 
@@ -17,12 +18,29 @@ namespace APS.Domain.Service
             
         }
 
-        public string Mensagem()
+        protected override void ValidarCadastro(Usuario entidade)
         {
-            var teste = BuscarTodos().ToList();
-            return "Oi, sucesso!!!";
+            if (entidade.Nome.Length<3)
+            {
+                throw new ServiceException("Erro");
+            }
         }
 
+        protected override void ValidarAtualizar(Usuario entidade)
+        {
+            if (repositorio.Get(x=> x.Nome==entidade.Nome && x.Id!=entidade.Id)!=null)
+            {
+                throw new ServiceException("Erro");
+            }
+        }
+
+        protected override void ValidarRemover(Usuario entidade)
+        {
+            if (entidade.Nome.Length < 3)
+            {
+                throw new ServiceException("Erro");
+            }
+        }
 
         public override void Dispose()
         {

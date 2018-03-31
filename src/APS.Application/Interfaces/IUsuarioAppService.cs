@@ -11,6 +11,9 @@ namespace APS.Application.Interfaces
     public interface IUsuarioAppService:IDisposable
     {
         void Cadastrar(CadastroViewModel cadastroViewModel);
-        string OlaPutedo();
+        void Remover(long id);
+        IEnumerable<CadastroViewModel> BuscarTodos();
+        void Atualizar(CadastroViewModel cadastroViewModel);
+        CadastroViewModel BuscarPorId(long id);
     }
 }

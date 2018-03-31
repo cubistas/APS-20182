@@ -48,6 +48,7 @@
     <Compile Include="AppService\UsuarioAppService.cs" />
     <Compile Include="AutoMapper\AutoMapperConfig.cs" />
     <Compile Include="AutoMapper\DomainToViewModelMappingProfile.cs" />
+    <Compile Include="AutoMapper\DomainToViewModel\UsuarioMap.cs" />
     <Compile Include="AutoMapper\ViewModelToDomainMappingProfile.cs" />
     <Compile Include="AutoMapper\ViewModelToDomain\UsuarioMap.cs" />
     <Compile Include="Interfaces\Common\IAppService.cs" />
@@ -55,9 +56,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\Usuario\CadastroViewModel.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="AutoMapper\DomainToViewModel\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>

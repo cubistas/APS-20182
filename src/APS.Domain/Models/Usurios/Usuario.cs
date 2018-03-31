@@ -10,6 +10,7 @@ namespace APS.Domain.Models.Usurios
     public sealed class Usuario : Entity
     {
 
+        #region Factor
         public static Usuario CriarNovo(
                 string nome,
                 string senha,
@@ -24,7 +25,23 @@ namespace APS.Domain.Models.Usurios
             };
         }
 
-        public Usuario(long id)
+        public static Usuario Criar(
+                long id,
+                string nome,
+                string senha,
+                string login
+            )
+        {
+            return new Usuario(id)
+            {
+                Login = login,
+                Nome = nome,
+                Senha = senha
+            };
+        } 
+        #endregion
+
+        private Usuario(long id)
         {
             Id = id;
         }

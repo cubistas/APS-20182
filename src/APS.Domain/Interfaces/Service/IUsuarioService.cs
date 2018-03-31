@@ -9,6 +9,6 @@ namespace APS.Domain.Interfaces.Service
 {
     public interface IUsuarioService: IServiceCRUD<Models.Usurios.Usuario>
     {
-        string Mensagem();
+        
     }
 }

@@ -13,7 +13,7 @@ namespace APS.Domain.Core.Service
     public abstract class ServiceCRUD<TEntity> : ServiceCommon, IServiceCRUD<TEntity> where TEntity : Entity
     {
 
-        private readonly IRepository<TEntity> repositorio;
+        protected readonly IRepository<TEntity> repositorio;
 
         protected ServiceCRUD(IUnitOfWork unitOfWork, IRepository<TEntity> repositorio) : base(unitOfWork)
         {
@@ -53,7 +53,7 @@ namespace APS.Domain.Core.Service
         public virtual void Atualizar(TEntity entidade)
         {
             ValidarEntidadeNula(entidade);
-            ValidarAtualizar(entidade);
+            this.ValidarAtualizar(entidade);
             repositorio.Update(entidade);
             Commit();
         }
@@ -65,6 +65,7 @@ namespace APS.Domain.Core.Service
 
         protected virtual void ValidarAtualizar(TEntity entidade)
         {
+
         }
 
         protected virtual void ValidarRemover(TEntity entidade)

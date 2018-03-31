@@ -57,19 +57,14 @@ namespace APS.Infra.Data.Context.Repository.EntityFramework.Usuario.Common
         public void Remove(TEntity entidade)
         {
             var entry = dbContext.Entry(entidade);
-            if (entry.State == EntityState.Detached)
-                dbSet.Attach(entidade);
-
-            this.ChangeObjectState(entidade, EntityState.Deleted);
+            entry.State = EntityState.Deleted;
         }
 
         public void Update(TEntity entidade)
         {
             var entry = dbContext.Entry(entidade);
             if (entry.State == EntityState.Detached)
-                dbSet.Attach(entidade);
-
-            this.ChangeObjectState(entidade, EntityState.Modified);
+                entry.State = EntityState.Modified;
         }
 
         public virtual void ChangeObjectState(object model, EntityState state)

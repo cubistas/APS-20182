@@ -14,7 +14,7 @@ namespace APS.Application.AutoMapper.ViewModelToDomain
         {
             profile.CreateMap<CadastroViewModel, Usuario>()
                 .ConvertUsing(x =>
-                    Usuario.CriarNovo(x.Nome, x.Senha, x.Login)
+                    Usuario.Criar(x.Id, x.Nome, x.Senha, x.Login)
                 );
         }
     }

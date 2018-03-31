@@ -10,13 +10,7 @@ namespace APS.Presentation.Web.Controllers
 {
     public class HomeController : Controller
     {
-
-        private readonly IUsuarioAppService usuarioAppService;
-
-        public HomeController(IUsuarioAppService usuarioAppService)
-        {
-            this.usuarioAppService = usuarioAppService;
-        }
+        
 
         public ActionResult Index()
         {
@@ -25,8 +19,7 @@ namespace APS.Presentation.Web.Controllers
 
         public ActionResult About()
         {
-            usuarioAppService.Cadastrar(new CadastroViewModel { Nome = "ramon", Login = "oi", Senha = "y123#$" });
-            ViewBag.Message = usuarioAppService.OlaPutedo();
+            ViewBag.Message = "Sobre";
             return View();
         }
 

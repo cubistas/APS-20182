@@ -15,5 +15,9 @@ namespace APS.Domain.Core.Exception
         {
             this.Mesagens = Enumerable.Empty<string>(); 
         }
+        public ServiceException(IEnumerable<string> lista)
+        {
+            this.Mesagens = lista;
+        }
     }
 }

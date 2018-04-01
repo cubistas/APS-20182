@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Linq.Expressions;
 using APS.Domain.Core.Exception;
+using APS.Domain.Core.Validation;
 
 namespace APS.Domain.Core.Service
 {
@@ -14,6 +15,7 @@ namespace APS.Domain.Core.Service
     {
 
         protected readonly IRepository<TEntity> repositorio;
+        private ValidationRule<TEntity> validar;
 
         protected ServiceCRUD(IUnitOfWork unitOfWork, IRepository<TEntity> repositorio) : base(unitOfWork)
         {
@@ -78,6 +80,19 @@ namespace APS.Domain.Core.Service
             {
                 throw new ServiceException("A entidade está vazia");
             }
+        }
+
+        protected ValidationRule<TEntity> ValidarRegras(TEntity entidade)
+        {
+            if(this.validar == null)
+                this.validar =  new ValidationRule<TEntity>(entidade);
+
+            return this.validar;
+        }
+
+        protected ValidationRule<TEntity> ValidarRegras()
+        {
+            return validar;
         }
 
         public virtual void Dispose()

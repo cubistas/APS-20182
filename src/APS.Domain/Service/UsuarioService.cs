@@ -28,10 +28,18 @@ namespace APS.Domain.Service
 
         protected override void ValidarAtualizar(Usuario entidade)
         {
-            if (repositorio.Get(x=> x.Nome==entidade.Nome && x.Id!=entidade.Id)!=null)
-            {
-                throw new ServiceException("Erro");
-            }
+            
+            ValidarRegras(entidade)
+                .AddValidacao(()=> (repositorio.Get(y => y.Nome == entidade.Nome && y.Id != entidade.Id) == null),
+                "Nome repetido")
+                .NotNull(x => x.Login, "Login vazio")
+                .NotEmpty(x => x.Nome, "Nome vazio")
+                .Length(x=> x.Login, 3, 4, "tamanho");
+
+            if (entidade.Senha == "12345")
+                ValidarRegras().AddError("erro senha");
+
+            ValidarRegras().IsValid();
         }
 
         protected override void ValidarRemover(Usuario entidade)

@@ -233,6 +233,10 @@
       <Project>{136b5e4d-d507-4aea-8941-e49ec7f871eb}</Project>
       <Name>APS.Application</Name>
     </ProjectReference>
+    <ProjectReference Include="..\APS.Domain.Core\APS.Domain.Core.csproj">
+      <Project>{68E93F29-18A6-40FC-B6CE-6AC05F3E54AF}</Project>
+      <Name>APS.Domain.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\APS.Infra.CrossCutting.Ioc\APS.Infra.CrossCutting.IoC.csproj">
       <Project>{5c19ccc8-54b1-466e-9f8b-f98f03eef934}</Project>
       <Name>APS.Infra.CrossCutting.IoC</Name>

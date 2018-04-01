@@ -1,5 +1,6 @@
 ﻿using APS.Application.Interfaces;
 using APS.Application.ViewModel.Usuario;
+using APS.Domain.Core.Exception;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -81,10 +82,15 @@ namespace APS.Presentation.Web.Controllers
                 usuarioAppService.Atualizar(cadastroViewModel);
                 return RedirectToAction("Index");
             }
-            catch(Exception e)
+            catch (ServiceException e)
             {
                 return View();
             }
+            catch (Exception e)
+            {
+                return View();
+            }
+            
         }
     }
 }

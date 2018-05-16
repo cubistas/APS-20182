@@ -13,6 +13,7 @@ namespace APS.Application.AutoMapper
         public ViewModelToDomainMappingProfile()
         {
             UsuarioMap.Map(this);
+            Common.Map(this);
         }
     }
 }

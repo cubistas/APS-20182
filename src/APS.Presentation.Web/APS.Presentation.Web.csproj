@@ -206,13 +206,14 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Usuarios\Index.cshtml" />
-    <Content Include="Views\Usuarios\Cadastrar.cshtml" />
     <Content Include="Views\Usuarios\Atualizar.cshtml" />
     <Content Include="Views\Usuarios\Remover.cshtml" />
     <Content Include="Views\Usuarios\Detalhes.cshtml" />
+    <Content Include="Views\Usuarios\Cadastrar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\UploadFileServer\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

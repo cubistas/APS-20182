@@ -50,10 +50,12 @@
     <Compile Include="AutoMapper\DomainToViewModelMappingProfile.cs" />
     <Compile Include="AutoMapper\DomainToViewModel\UsuarioMap.cs" />
     <Compile Include="AutoMapper\ViewModelToDomainMappingProfile.cs" />
+    <Compile Include="AutoMapper\ViewModelToDomain\Common.cs" />
     <Compile Include="AutoMapper\ViewModelToDomain\UsuarioMap.cs" />
     <Compile Include="Interfaces\Common\IAppService.cs" />
     <Compile Include="Interfaces\IUsuarioAppService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\Common\AnexoViewModel.cs" />
     <Compile Include="ViewModel\Usuario\CadastroViewModel.cs" />
   </ItemGroup>
   <ItemGroup />

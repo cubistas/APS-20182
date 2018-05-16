@@ -1,4 +1,5 @@
-﻿using APS.Application.ViewModel.Usuario;
+﻿using APS.Application.ViewModel.Common;
+using APS.Application.ViewModel.Usuario;
 using APS.Domain.Models.Usurios;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,10 @@ namespace APS.Application.AutoMapper.DomainToViewModel
         public static void Map(DomainToViewModelMappingProfile profile)
         {
             profile.CreateMap<Usuario, CadastroViewModel>();
+
+            profile.CreateMap<ArquivoUsuario, AnexoViewModel>()
+               .ForMember(x => x.Arquivo, m => m.MapFrom(o => Convert.ToBase64String(o.Arquivo.Conteudo)))
+               .ForMember(x => x.Nome, m => m.MapFrom(o => o.Arquivo.Nome));
         }
     }
 }

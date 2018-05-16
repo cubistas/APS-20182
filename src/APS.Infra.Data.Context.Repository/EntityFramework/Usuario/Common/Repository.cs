@@ -31,15 +31,15 @@ namespace APS.Infra.Data.Context.Repository.EntityFramework.Usuario.Common
 
         public IEnumerable<TEntity> All()
         {
-            return dbSet.AsEnumerable();
+            return Find();
         }
 
 
-        public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate)
+        public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate=null)
         {
             return predicate != null?
-                dbSet.Where(predicate).AsEnumerable():
-                dbSet.AsEnumerable();
+                dbSet.Where(predicate).AsNoTracking():
+                dbSet.AsNoTracking();
         }
 
         public TEntity Get(Expression<Func<TEntity, bool>> predicate)

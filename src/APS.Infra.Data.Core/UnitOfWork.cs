@@ -1,4 +1,4 @@
-﻿using APS.Domain.Core.Exception;
+﻿using APS.Domain.Core.Exceptions;
 using APS.Domain.Core.Interface;
 using APS.Infra.Data.Core.Interfaces;
 using System;

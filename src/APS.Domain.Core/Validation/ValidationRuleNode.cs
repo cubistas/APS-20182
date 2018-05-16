@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace APS.Domain.Core.Validation
@@ -45,11 +46,42 @@ namespace APS.Domain.Core.Validation
         public ValidationRule<TEntity> NotEmpty<T>(Func<TEntity, IEnumerable<T>> func, string mensagem)
         {
             var r = func.Invoke(entity);
-            if (r == null || r.Any())
+            if (r == null || !r.Any())
                 _errors.Add(mensagem);
             return this;
         }
         #endregion
+
+        public ValidationRule<TEntity> Equals<R>(Func<TEntity, R> objectPrimary, Func<TEntity, R> objectSecond, string mensagem) where R : class
+        {
+            var p = objectPrimary.Invoke(entity);
+            var s = objectSecond.Invoke(entity);
+            if (!p.Equals(s))
+                _errors.Add(mensagem);
+            return this;
+        }
+
+        public ValidationRule<TEntity> IsValidEmail(Func<TEntity, string> func, string mensagem)
+        {
+            var email = func.Invoke(entity);
+
+            Regex rg = new Regex(@"^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$");
+
+            if (!rg.IsMatch(email))
+                _errors.Add(mensagem);
+
+            return this;
+        }
+
+        public ValidationRule<TEntity> IsEnum<TEnum>(Func<TEntity, TEnum> func, string mensagem)
+        {
+            var @enum = func.Invoke(entity);
+
+            if (!(@enum is Enum))
+                _errors.Add(mensagem);
+
+            return this;
+        }
 
         public ValidationRule<TEntity> NotNull<R>(Func<TEntity, R> func, string mensagem)
         {

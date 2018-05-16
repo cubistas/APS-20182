@@ -7,13 +7,13 @@ namespace APS.Infra.Data.Context.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class magrationusuario : IMigrationMetadata
+    public sealed partial class Usuario1 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(magrationusuario));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Usuario1));
         
         string IMigrationMetadata.Id
         {
-            get { return "201803260025518_magration-usuario"; }
+            get { return "201805160121327_Usuario1"; }
         }
         
         string IMigrationMetadata.Source

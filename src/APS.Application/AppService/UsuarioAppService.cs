@@ -5,6 +5,7 @@ using APS.Application.ViewModel.Usuario;
 using AutoMapper;
 using APS.Domain.Models.Usurios;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace APS.Application.AppService
 {
@@ -18,9 +19,10 @@ namespace APS.Application.AppService
             this.mapper = mapper;
         }
 
-        public IEnumerable<CadastroViewModel> BuscarTodos()
+        public ICollection<CadastroViewModel> BuscarTodos()
         {
-            return mapper.Map<IEnumerable<CadastroViewModel>>(usuarioService.BuscarTodos());
+            var lista = usuarioService.BuscarTodos();
+            return mapper.Map<ICollection<CadastroViewModel>>(lista);
         }
 
         public void Cadastrar(CadastroViewModel cadastroViewModel)

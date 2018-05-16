@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace APS.Domain.Core.Exception
+namespace APS.Domain.Core.Exceptions
 {
-    public class ServiceException:SystemException
+    [Serializable]
+    public class ServiceException: Exception
     {
 
         public IEnumerable<string> Mesagens { get; protected set; }
@@ -15,9 +16,11 @@ namespace APS.Domain.Core.Exception
         {
             this.Mesagens = Enumerable.Empty<string>(); 
         }
-        public ServiceException(IEnumerable<string> lista)
+
+        public ServiceException(IEnumerable<string> mesagens) 
+            : base(mesagens !=null && mesagens.Any()? mesagens.Aggregate((a,b)=> $@"{a}\n{b}") : string.Empty)
         {
-            this.Mesagens = lista;
+            this.Mesagens = mesagens;
         }
     }
 }

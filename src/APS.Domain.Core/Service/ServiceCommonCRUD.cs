@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Linq.Expressions;
-using APS.Domain.Core.Exception;
+using APS.Domain.Core.Exceptions;
 using APS.Domain.Core.Validation;
 
 namespace APS.Domain.Core.Service
@@ -22,18 +22,18 @@ namespace APS.Domain.Core.Service
             this.repositorio = repositorio;
         }
 
-        #region  CRUD
+        #region Metodos Vitual publicos CRUD
 
         public virtual TEntity BuscarPorId(long id)
         {
             return repositorio.Get(id);
         }
 
-        public virtual IEnumerable<TEntity> BuscarTodos(Expression<Func<TEntity, bool>> predicate = null)
+        public virtual ICollection<TEntity> BuscarTodos(Expression<Func<TEntity, bool>> predicate = null)
         {
-            return predicate == null ?
+            return (predicate == null ?
                 repositorio.All() :
-                repositorio.Find(predicate);
+                repositorio.Find(predicate))?.ToList();
         }
 
         public virtual void Remover(long id)
@@ -97,7 +97,7 @@ namespace APS.Domain.Core.Service
 
         public virtual void Dispose()
         {
-            throw new NotImplementedException();
+            repositorio.Dispose();
         }
     }
 }

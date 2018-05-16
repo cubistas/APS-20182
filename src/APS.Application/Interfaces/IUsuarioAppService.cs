@@ -12,7 +12,7 @@ namespace APS.Application.Interfaces
     {
         void Cadastrar(CadastroViewModel cadastroViewModel);
         void Remover(long id);
-        IEnumerable<CadastroViewModel> BuscarTodos();
+        ICollection<CadastroViewModel> BuscarTodos();
         void Atualizar(CadastroViewModel cadastroViewModel);
         CadastroViewModel BuscarPorId(long id);
     }

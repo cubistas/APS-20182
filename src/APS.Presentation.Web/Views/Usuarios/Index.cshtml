@@ -17,23 +17,33 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Senha)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Login)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Atualizar", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Detalhes", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Remover", new { id=item.Id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Senha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Login)
+            </td>
+            <td>
+                <img src="data:image;base64,@item.ImagemPerfil.Arquivo" width="80" height="80" />
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Atualizar", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Detalhes", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Remover", new { id = item.Id })
+            </td>
+        </tr>
+    }
 
 </table>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        window.Model = @Html.Raw(Json.Encode(Model));
+    </script>
+}

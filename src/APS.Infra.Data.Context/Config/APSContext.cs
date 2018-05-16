@@ -32,7 +32,8 @@ namespace APS.Infra.Data.Context.Config
             RemoverConvencoes(modelBuilder);
             ConfigurarTipoPadraoColunasPropriedadesString(modelBuilder);
 
-            modelBuilder.Configurations.Add(new UauarioMap());
+            modelBuilder.Configurations.Add(new UsuarioMap());
+            modelBuilder.Configurations.Add(new ArquivoUsuarioMap());
 
         }
 

@@ -1,45 +1,9 @@
 ﻿using APS.Domain.Core.Models.Common;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace APS.Domain.Models.Usurios
 {
-    public sealed class Usuario : Entity
-    {
-
-        #region Factor
-        public static Usuario CriarNovo(
-                string nome,
-                string senha,
-                string login
-            )
-        {
-            return new Usuario(0)
-            {
-                Login = login,
-                Nome = nome,
-                Senha = senha
-            };
-        }
-
-        public static Usuario Criar(
-                long id,
-                string nome,
-                string senha,
-                string login
-            )
-        {
-            return new Usuario(id)
-            {
-                Login = login,
-                Nome = nome,
-                Senha = senha
-            };
-        } 
-        #endregion
+    public partial class Usuario : Entity
+    {        
 
         private Usuario(long id)
         {
@@ -49,7 +13,21 @@ namespace APS.Domain.Models.Usurios
         protected Usuario() { }
 
         public string Nome { get; private set; }
+
         public string Senha { get; private set; }
+
+        public string ConfirmarSenha { get; private set; }
+
         public string Login { get; private set; }
+
+        public string Email { get; private set; }
+
+        public string EmailParaContato { get; private set; }
+
+        public string Telefone { get; private set; }
+
+        public eTipoUsuario TipoUsuario { get; private set; }
+
+        public virtual ArquivoUsuario ImagemPerfil { get; private set; }
     }
 }

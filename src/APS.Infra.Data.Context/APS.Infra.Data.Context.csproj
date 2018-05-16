@@ -70,18 +70,15 @@
   <ItemGroup>
     <Compile Include="Config\APSContext.cs" />
     <Compile Include="Extensions\EntityFramework\Mappings\PropertyConfigurationExtension.cs" />
-    <Compile Include="Mappings\EntityFramework\UauarioMap.cs" />
-    <Compile Include="Migrations\201803260019504_Firt-magration.cs" />
-    <Compile Include="Migrations\201803260019504_Firt-magration.Designer.cs">
-      <DependentUpon>201803260019504_Firt-magration.cs</DependentUpon>
+    <Compile Include="Mappings\EntityFramework\ArquivoUsuarioMap.cs" />
+    <Compile Include="Mappings\EntityFramework\UsuarioMap.cs" />
+    <Compile Include="Migrations\201805160120252_Usuario.cs" />
+    <Compile Include="Migrations\201805160120252_Usuario.Designer.cs">
+      <DependentUpon>201805160120252_Usuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201803260025518_magration-usuario.cs" />
-    <Compile Include="Migrations\201803260025518_magration-usuario.Designer.cs">
-      <DependentUpon>201803260025518_magration-usuario.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803260037180_magration-usuario-id.cs" />
-    <Compile Include="Migrations\201803260037180_magration-usuario-id.Designer.cs">
-      <DependentUpon>201803260037180_magration-usuario-id.cs</DependentUpon>
+    <Compile Include="Migrations\201805160121327_Usuario1.cs" />
+    <Compile Include="Migrations\201805160121327_Usuario1.Designer.cs">
+      <DependentUpon>201805160121327_Usuario1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -116,14 +113,11 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201803260019504_Firt-magration.resx">
-      <DependentUpon>201803260019504_Firt-magration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201805160120252_Usuario.resx">
+      <DependentUpon>201805160120252_Usuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803260025518_magration-usuario.resx">
-      <DependentUpon>201803260025518_magration-usuario.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803260037180_magration-usuario-id.resx">
-      <DependentUpon>201803260037180_magration-usuario-id.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201805160121327_Usuario1.resx">
+      <DependentUpon>201805160121327_Usuario1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

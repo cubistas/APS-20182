@@ -14,7 +14,7 @@ namespace APS.Domain.Core.Interface
         void Remover(long id);
 
 
-        IEnumerable<TEntity> BuscarTodos(Expression<Func<TEntity, bool>> predicate = null);
+        ICollection<TEntity> BuscarTodos(Expression<Func<TEntity, bool>> predicate = null);
         TEntity BuscarPorId(long id);
         
     }

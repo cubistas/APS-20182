@@ -1,6 +1,6 @@
 ﻿using APS.Application.Interfaces;
 using APS.Application.ViewModel.Usuario;
-using APS.Domain.Core.Exception;
+using APS.Domain.Core.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -55,14 +55,20 @@ namespace APS.Presentation.Web.Controllers
 
         [HttpPost]
         public ActionResult Cadastrar(CadastroViewModel cadastroViewModel)
-        {
+        {            
             try
             {
                 usuarioAppService.Cadastrar(cadastroViewModel);
                 return RedirectToAction("Index");
             }
-            catch
+            catch (ServiceException e)
             {
+                ViewBag.Erro = e.Message;
+                return View();
+            }
+            catch (Exception e)
+            {
+                ViewBag.Erro = e.Message;
                 return View();
             }
         }

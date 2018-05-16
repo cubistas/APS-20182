@@ -1,10 +1,14 @@
 ﻿using APS.Application.AutoMapper.ViewModelToDomain;
+using APS.Infra.CrossCutting.Ioc;
 using AutoMapper;
 
 namespace APS.Application.AutoMapper
 {
     public class ViewModelToDomainMappingProfile : Profile
     {
+
+        public IMapper Mapper { get => InMemory.GetService<IMapper>(); }
+
         public override string ProfileName
         {
             get { return "ViewModelToDomainMappings"; }
@@ -13,6 +17,7 @@ namespace APS.Application.AutoMapper
         public ViewModelToDomainMappingProfile()
         {
             UsuarioMap.Map(this);
+            PostMap.Map(this);
             Common.Map(this);
         }
     }

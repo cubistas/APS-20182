@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace APS.Domain.Models.Posts
 {
-    public class Animal:Entity
+    public partial class Animal:Entity
     {
         protected Animal() { }
 

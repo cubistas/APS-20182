@@ -23,10 +23,15 @@ namespace APS.Infra.CrossCutting.IoC
 
             container.Verify();
 
-            container.RegisterMvcControllers(Assembly.GetExecutingAssembly());            
+            container.RegisterMvcControllers(Assembly.GetExecutingAssembly());
+            //(paratro) HttpConfiguration configuration
+            // pacote using SimpleInjector.Integration.WebApi;
+            //Lifestyle.CreateHybrid
+            //container.RegisterWebApiControllers(configuration);
 
             return container;
         }
+
 
         private static void MapperModules(Container container)
         {

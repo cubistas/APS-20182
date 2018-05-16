@@ -33,6 +33,12 @@
     <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
+    <Reference Include="AutoMapper.6.2.2.0.Fakes">
+      <HintPath>FakesAssemblies\AutoMapper.6.2.2.0.Fakes.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -51,11 +57,14 @@
     <Compile Include="AutoMapper\DomainToViewModel\UsuarioMap.cs" />
     <Compile Include="AutoMapper\ViewModelToDomainMappingProfile.cs" />
     <Compile Include="AutoMapper\ViewModelToDomain\Common.cs" />
+    <Compile Include="AutoMapper\ViewModelToDomain\PostMap.cs" />
     <Compile Include="AutoMapper\ViewModelToDomain\UsuarioMap.cs" />
     <Compile Include="Interfaces\Common\IAppService.cs" />
     <Compile Include="Interfaces\IUsuarioAppService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\Common\AnexoViewModel.cs" />
+    <Compile Include="ViewModel\Posts\AnimalArquivoViewModel.cs" />
+    <Compile Include="ViewModel\Posts\AnimalViewModel.cs" />
     <Compile Include="ViewModel\Usuario\CadastroViewModel.cs" />
   </ItemGroup>
   <ItemGroup />
@@ -70,6 +79,10 @@
     <ProjectReference Include="..\APS.Domain\APS.Domain.csproj">
       <Project>{F277F7BB-117A-45BC-9B56-2B745B59F2AC}</Project>
       <Name>APS.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\APS.Infra.CrossCutting.Bus\APS.Infra.CrossCutting.Bus.csproj">
+      <Project>{8F620674-0E0E-45D0-84E2-BF5D231C6A79}</Project>
+      <Name>APS.Infra.CrossCutting.Bus</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

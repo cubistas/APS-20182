@@ -26,7 +26,7 @@ namespace APS.Application.AutoMapper.ViewModelToDomain
                             x.Telefone,
                             x.TipoUsuario,
                             ArquivoUsuario.CriarUpload(
-                                    x.ImagemPerfil.Id,
+                                    x.Id,
                                     x.ImagemPerfil.Nome,
                                     string.IsNullOrEmpty(x.ImagemPerfil.Arquivo) ? 
                                         null : Convert.FromBase64String(x.ImagemPerfil.Arquivo)

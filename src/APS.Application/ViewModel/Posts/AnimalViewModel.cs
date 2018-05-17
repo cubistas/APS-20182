@@ -23,6 +23,8 @@ namespace APS.Application.ViewModel.Posts
 
         public decimal Kilos { get; set; }
 
+        public string Cor { get; set; }
+
         public virtual ICollection<AnimalArquivoViewModel> ImagensAnimal { get; set; }
 
     }

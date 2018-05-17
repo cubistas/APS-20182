@@ -11,5 +11,10 @@ namespace APS.Domain.Core.Models.Common
         public long Id { get; set; }
 
         public bool IsNew { get => Id <= 0; }
+
+        public virtual object Clone()
+        {
+            return this.MemberwiseClone();
+        }
     }
 }

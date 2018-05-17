@@ -1,4 +1,6 @@
 ﻿using APS.Domain.Core.Models.Common;
+using APS.Domain.Models.Posts;
+using System.Collections.Generic;
 
 namespace APS.Domain.Models.Usurios
 {
@@ -29,5 +31,10 @@ namespace APS.Domain.Models.Usurios
         public eTipoUsuario TipoUsuario { get; private set; }
 
         public virtual ArquivoUsuario ImagemPerfil { get; private set; }
+
+        public virtual ICollection<Curtida> Curtidas { get; private set; }
+
+        public virtual ICollection<Post> Posts { get; private set; }
+
     }
 }

@@ -1,5 +1,5 @@
 ﻿using APS.Application.AutoMapper.ViewModelToDomain;
-using APS.Infra.CrossCutting.Ioc;
+using APS.Infra.CrossCutting.Bus;
 using AutoMapper;
 
 namespace APS.Application.AutoMapper

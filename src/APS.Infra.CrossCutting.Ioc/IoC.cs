@@ -2,6 +2,8 @@
 
 using APS.Application.AppService;
 using APS.Application.Interfaces;
+using APS.Infra.CrossCutting.Bus;
+using APS.Infra.CrossCutting.Ioc;
 using APS.Infra.CrossCutting.Ioc.Modules;
 using SimpleInjector;
 using SimpleInjector.Integration.Web;
@@ -13,25 +15,28 @@ namespace APS.Infra.CrossCutting.IoC
 {
     public static class SimpleInjectorContainer
     {
+
+
+        private static readonly Container Container = new Container();
+
         public static Container RegisterServices()
         {
-            var container = new Container();
+            Container.Options.DefaultScopedLifestyle = new WebRequestLifestyle();
 
-            container.Options.DefaultScopedLifestyle = new WebRequestLifestyle();
+            MapperModules(Container);
 
-            MapperModules(container);
+            Container.Verify();
 
-            container.Verify();
-
-            container.RegisterMvcControllers(Assembly.GetExecutingAssembly());
+            Container.RegisterMvcControllers(Assembly.GetExecutingAssembly());
             //(paratro) HttpConfiguration configuration
             // pacote using SimpleInjector.Integration.WebApi;
             //Lifestyle.CreateHybrid
             //container.RegisterWebApiControllers(configuration);
 
-            return container;
-        }
+            InMemory.ContainerAccessor = () => Container;
 
+            return Container;
+        }
 
         private static void MapperModules(Container container)
         {

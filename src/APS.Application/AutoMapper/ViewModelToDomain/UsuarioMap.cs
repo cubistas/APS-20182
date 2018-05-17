@@ -25,12 +25,7 @@ namespace APS.Application.AutoMapper.ViewModelToDomain
                             x.EmailParaContato,
                             x.Telefone,
                             x.TipoUsuario,
-                            ArquivoUsuario.CriarUpload(
-                                    x.Id,
-                                    x.ImagemPerfil.Nome,
-                                    string.IsNullOrEmpty(x.ImagemPerfil.Arquivo) ? 
-                                        null : Convert.FromBase64String(x.ImagemPerfil.Arquivo)
-                                )
+                            profile.Mapper.Map<ArquivoUsuario>(x.ImagemPerfil)
                         )
                 );
         }

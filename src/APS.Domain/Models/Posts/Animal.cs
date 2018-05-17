@@ -23,6 +23,10 @@ namespace APS.Domain.Models.Posts
 
         public decimal Kilos { get; private set; }
 
+        public string Cor { get; private set; }
+
         public virtual ICollection<AnimalArquivo> ImagensAnimal { get; private set; }
+
+        public virtual Post Post { get; private set; }
     }
 }

@@ -1,10 +1,14 @@
 ﻿using APS.Application.AutoMapper.DomainToViewModel;
+using APS.Infra.CrossCutting.Bus;
 using AutoMapper;
 
 namespace APS.Application.AutoMapper
 {
     public class DomainToViewModelMappingProfile : Profile
     {
+
+        public IMapper Mapper { get => InMemory.GetService<IMapper>(); }
+
         public override string ProfileName
         {
             get { return "DomainToViewModelMappings"; }
@@ -13,6 +17,7 @@ namespace APS.Application.AutoMapper
         public DomainToViewModelMappingProfile()
         {
             UsuarioMap.Map(this);
+            PostMap.Map(this);
         }
     }
 }

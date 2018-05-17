@@ -47,7 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EntityFramework\Usuario\Common\Repository.cs" />
+    <Compile Include="EntityFramework\Common\Repository.cs" />
+    <Compile Include="EntityFramework\Post\PostRepository.cs" />
     <Compile Include="EntityFramework\Usuario\UsuarioRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

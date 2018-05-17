@@ -15,6 +15,7 @@ namespace APS.Domain.Models.Posts
                 string raca,
                 string descricao,
                 decimal kilos,
+                string cor,
                 ICollection<AnimalArquivo> imagensAnimal
             )
         {
@@ -25,6 +26,7 @@ namespace APS.Domain.Models.Posts
                 Raca = raca,
                 Descricao = descricao,
                 Kilos = kilos,
+                Cor = cor,
                 ImagensAnimal = imagensAnimal
             };
         }
@@ -36,6 +38,7 @@ namespace APS.Domain.Models.Posts
                 string raca,
                 string descricao,
                 decimal kilos,
+                string cor,
                 ICollection<AnimalArquivo> imagensAnimal
             )
         {
@@ -46,6 +49,7 @@ namespace APS.Domain.Models.Posts
                 Raca = raca,
                 Descricao = descricao,
                 Kilos = kilos,
+                Cor = cor,
                 ImagensAnimal = imagensAnimal
             };
         }

@@ -15,6 +15,7 @@ namespace APS.Infra.CrossCutting.Ioc.Modules
         {
             AutoMapperRegistry(container);
             container.Register<IUsuarioAppService, UsuarioAppService>(Lifestyle.Scoped);
+            container.Register<IPostAppService, PostAppService>(Lifestyle.Scoped);
         }
 
         private static void AutoMapperRegistry(Container container)

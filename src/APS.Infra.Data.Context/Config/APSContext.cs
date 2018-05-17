@@ -34,6 +34,10 @@ namespace APS.Infra.Data.Context.Config
 
             modelBuilder.Configurations.Add(new UsuarioMap());
             modelBuilder.Configurations.Add(new ArquivoUsuarioMap());
+            modelBuilder.Configurations.Add(new AnimalMap());
+            modelBuilder.Configurations.Add(new AnimalArquivoMap());
+            modelBuilder.Configurations.Add(new CurtidaMap());
+            modelBuilder.Configurations.Add(new PostMap());
 
         }
 

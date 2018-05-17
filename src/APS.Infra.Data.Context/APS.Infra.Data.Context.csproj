@@ -70,7 +70,11 @@
   <ItemGroup>
     <Compile Include="Config\APSContext.cs" />
     <Compile Include="Extensions\EntityFramework\Mappings\PropertyConfigurationExtension.cs" />
+    <Compile Include="Mappings\EntityFramework\AnimalArquivoMap.cs" />
+    <Compile Include="Mappings\EntityFramework\PostMap.cs" />
     <Compile Include="Mappings\EntityFramework\ArquivoUsuarioMap.cs" />
+    <Compile Include="Mappings\EntityFramework\AnimalMap.cs" />
+    <Compile Include="Mappings\EntityFramework\CurtidaMap.cs" />
     <Compile Include="Mappings\EntityFramework\UsuarioMap.cs" />
     <Compile Include="Migrations\201805160120252_Usuario.cs" />
     <Compile Include="Migrations\201805160120252_Usuario.Designer.cs">
@@ -79,6 +83,10 @@
     <Compile Include="Migrations\201805160121327_Usuario1.cs" />
     <Compile Include="Migrations\201805160121327_Usuario1.Designer.cs">
       <DependentUpon>201805160121327_Usuario1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805170220251_Posts.cs" />
+    <Compile Include="Migrations\201805170220251_Posts.Designer.cs">
+      <DependentUpon>201805170220251_Posts.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -118,6 +126,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805160121327_Usuario1.resx">
       <DependentUpon>201805160121327_Usuario1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805170220251_Posts.resx">
+      <DependentUpon>201805170220251_Posts.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

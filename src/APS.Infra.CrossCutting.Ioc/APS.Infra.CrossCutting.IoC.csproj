@@ -65,7 +65,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InMemory.cs" />
     <Compile Include="IoC.cs" />
     <Compile Include="Modules\AplicationServiceModules.cs" />
     <Compile Include="Modules\RepositoryModules.cs" />
@@ -89,6 +88,10 @@
     <ProjectReference Include="..\APS.Domain\APS.Domain.csproj">
       <Project>{F277F7BB-117A-45BC-9B56-2B745B59F2AC}</Project>
       <Name>APS.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\APS.Infra.CrossCutting.Bus\APS.Infra.CrossCutting.Bus.csproj">
+      <Project>{8F620674-0E0E-45D0-84E2-BF5D231C6A79}</Project>
+      <Name>APS.Infra.CrossCutting.Bus</Name>
     </ProjectReference>
     <ProjectReference Include="..\APS.Infra.Data.Context.Repository\APS.Infra.Data.Context.Repository.csproj">
       <Project>{F29BD88C-0CC9-43EF-8027-D146C33E7265}</Project>

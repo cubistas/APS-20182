@@ -11,6 +11,7 @@ namespace APS.Domain.Models.Posts
 
         public static Post Criar(
                 long id,
+                long idUsuario,
                 int latitude,
                 int longitude,
                 DateTime dataCriacao,
@@ -19,6 +20,7 @@ namespace APS.Domain.Models.Posts
         {
             return new Post(id)
             {
+                IdUsuario = idUsuario,
                 Latitude = latitude,
                 Longitude = longitude,
                 DataCriacao = dataCriacao,

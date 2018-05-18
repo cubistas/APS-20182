@@ -27,8 +27,12 @@ namespace APS.Domain.Service
         protected override void ValidarAtualizar(Post entidade)
         {
             
-        }        
-        
+        }
+
+        private void ValidarPadrao()
+        {
+
+        }
 
         public override void Dispose()
         {

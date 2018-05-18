@@ -90,5 +90,13 @@ namespace APS.Domain.Core.Validation
                 _errors.Add(mensagem);
             return this;
         }
+
+        public ValidationRule<TEntity> Greater<R>(Func<TEntity, R> func, R number, string mensagem) where R: struct, IComparable, IComparable<R>
+        {
+            var r = func.Invoke(entity);
+            if (r.CompareTo(number) > 0)
+                _errors.Add(mensagem);
+            return this;
+        }
     }
 }

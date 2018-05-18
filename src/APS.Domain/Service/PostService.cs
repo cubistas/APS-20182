@@ -29,9 +29,10 @@ namespace APS.Domain.Service
             
         }
 
-        private void ValidarPadrao()
+        private void ValidarPadrao(Post entidade)
         {
-
+            ValidarRegras(entidade)
+                .Length(x=> x.IdUsuario,)
         }
 
         public override void Dispose()

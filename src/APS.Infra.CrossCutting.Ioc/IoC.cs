@@ -10,6 +10,7 @@ using SimpleInjector.Integration.Web;
 using SimpleInjector.Integration.Web.Mvc;
 using System;
 using System.Reflection;
+using System.Web.Http;
 
 namespace APS.Infra.CrossCutting.IoC
 {
@@ -28,12 +29,17 @@ namespace APS.Infra.CrossCutting.IoC
             Container.Verify();
 
             Container.RegisterMvcControllers(Assembly.GetExecutingAssembly());
-            //(paratro) HttpConfiguration configuration
-            // pacote using SimpleInjector.Integration.WebApi;
-            //Lifestyle.CreateHybrid
-            //container.RegisterWebApiControllers(configuration);
 
             InMemory.ContainerAccessor = () => Container;
+
+            return Container;
+        }
+
+        public static Container RegisterServices(HttpConfiguration configuration)
+        {
+            RegisterServices();
+
+            Container.RegisterWebApiControllers(configuration);
 
             return Container;
         }

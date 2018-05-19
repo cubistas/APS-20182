@@ -18,12 +18,7 @@ namespace APS.Presentation.Web
         {
             
             AreaRegistration.RegisterAllAreas();
-            GlobalConfiguration.Configure(WebApiConfig.Register);
-
-            DependencyResolver.SetResolver(new SimpleInjectorDependencyResolver(
-                    SimpleInjectorContainer.RegisterServices()
-                ));
-
+            GlobalConfiguration.Configure(WebApiConfig.Register);            
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);

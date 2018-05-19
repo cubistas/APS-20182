@@ -52,7 +52,7 @@ namespace APS.Domain.Service
             {
                 ValidarRegras(entidade)
                    .NotEmpty(x => x.ImagemPerfil.Arquivo.Nome, "Nome da imagem vazio")
-                   .NotEmpty(x => x.ImagemPerfil.Arquivo.Conteudo?.AsEnumerable(), "O arquivo está vazio");
+                   .NotEmpty(x => x.ImagemPerfil.Arquivo.Conteudo, "O arquivo está vazio");
             }
             else
             {

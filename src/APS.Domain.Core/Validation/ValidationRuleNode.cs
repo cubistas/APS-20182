@@ -50,6 +50,14 @@ namespace APS.Domain.Core.Validation
                 _errors.Add(mensagem);
             return this;
         }
+
+        public ValidationRule<TEntity> NotEmpty<T>(Func<TEntity, T[]> func, string mensagem)where T:struct
+        {
+            var r = func.Invoke(entity);
+            if (r == null || !r.Any())
+                _errors.Add(mensagem);
+            return this;
+        }
         #endregion
 
         public ValidationRule<TEntity> Equals<R>(Func<TEntity, R> objectPrimary, Func<TEntity, R> objectSecond, string mensagem) where R : class
@@ -94,7 +102,7 @@ namespace APS.Domain.Core.Validation
         public ValidationRule<TEntity> Greater<R>(Func<TEntity, R> func, R number, string mensagem) where R: struct, IComparable, IComparable<R>
         {
             var r = func.Invoke(entity);
-            if (r.CompareTo(number) > 0)
+            if (r.CompareTo(number) > 1)
                 _errors.Add(mensagem);
             return this;
         }

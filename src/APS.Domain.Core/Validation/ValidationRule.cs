@@ -32,7 +32,7 @@ namespace APS.Domain.Core.Validation
             _errors.Add(error);
         }
 
-        public void AddError(List<string> errors)
+        public void AddError(ICollection<string> errors)
         {
             _errors.AddRange(errors);
         }
@@ -41,6 +41,11 @@ namespace APS.Domain.Core.Validation
         {
             if (_errors.Any())
                 throw new ServiceException(_errors);
+        }
+
+        public ICollection<string> GetErros()
+        {
+            return _errors;
         }
 
     }

@@ -54,5 +54,13 @@ namespace APS.Application.AppService
             usuarioService.Dispose();
             GC.SuppressFinalize(this);
         }
+
+        public CadastroViewModel BuscarPorEmail(string email)
+        {
+            return mapper.Map<CadastroViewModel>(
+                usuarioService.BuscarTodos()
+                    .FirstOrDefault(x=> x.Login.Equals(email))
+            );
+        }
     }
 }

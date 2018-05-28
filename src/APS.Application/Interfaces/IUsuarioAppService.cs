@@ -15,5 +15,6 @@ namespace APS.Application.Interfaces
         ICollection<CadastroViewModel> BuscarTodos();
         void Atualizar(CadastroViewModel cadastroViewModel);
         CadastroViewModel BuscarPorId(long id);
+        CadastroViewModel BuscarPorEmail(string email);
     }
 }

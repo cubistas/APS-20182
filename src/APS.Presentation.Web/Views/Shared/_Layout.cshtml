@@ -1,45 +1,74 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Meu Aplicativo ASP.NET</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+    <title>Projeto APS</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Content/lib/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+
+    <link href="~/Content/lib/calendar2/semantic.ui.min.css" rel="stylesheet" />
+    <link href="~/Content/lib/calendar2/pignose.calendar.min.css" rel="stylesheet" />
+    <link href="~/Content/lib/owl.carousel.min.css" rel="stylesheet" />
+    <link href="~/Content/lib/owl.theme.default.min.css" rel="stylesheet" />
+    <link href="~/Content/helper.css" rel="stylesheet" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:** -->
+    <!--[if lt IE 9]>
+        <script src="https:**oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Nome do aplicativo", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Início", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Sobre", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contato", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Usuário", "Index", "Usuarios")</li>
-                    <li>@Html.ActionLink("Usuário", "Cadastrar", "Post")</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Meu Aplicativo ASP.NET</p>
-        </footer>
-    </div>
+   
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    @RenderBody()
+
+
+    <!-- End Wrapper -->
+    <!-- All Jquery -->
+    <script src="~/Scripts/lib/jquery/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="~/Scripts/lib/bootstrap/js/popper.min.js"></script>
+    <script src="~/Scripts/lib/bootstrap/js/bootstrap.min.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="~/Scripts/jquery.slimscroll.js"></script>
+    <!--Menu sidebar -->
+    <script src="~/Scripts/sidebarmenu.js"></script>
+    <!--stickey kit -->
+    <script src="~/Scripts/lib/sticky-kit-master/dist/sticky-kit.min.js"></script>
+    <!--Custom JavaScript -->
+    <!-- Amchart -->
+    <script src="~/Scripts/lib/morris-chart/raphael-min.js"></script>
+    <script src="~/Scripts/lib/morris-chart/morris.js"></script>
+    <script src="~/Scripts/lib/morris-chart/dashboard1-init.js"></script>
+
+    <script src="~/Scripts/lib/calendar-2/moment.latest.min.js"></script>
+    <!-- scripit init-->
+    <script src="~/Scripts/lib/calendar-2/semantic.ui.min.js"></script>
+    <!-- scripit init-->
+    <script src="~/Scripts/lib/calendar-2/prism.min.js"></script>
+    <!-- scripit init-->
+    <script src="~/Scripts/lib/calendar-2/pignose.calendar.min.js"></script>
+    <!-- scripit init-->
+    <script src="~/Scripts/lib/calendar-2/pignose.init.js"></script>
+
+    <script src="~/Scripts/lib/owl-carousel/owl.carousel.min.js"></script>
+    <script src="~/Scripts/lib/owl-carousel/owl.carousel-init.js"></script>
+
+    <script src="~/Scripts/scripts.js"></script>
+    <!-- scripit init-->
+    
+    <script src="~/Scripts/custom.min.js"></script>
+
+
 </body>
 </html>

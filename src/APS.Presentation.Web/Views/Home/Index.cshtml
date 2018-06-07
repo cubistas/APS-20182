@@ -2,30 +2,174 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+
+<!-- Preloader - style you can find in spinners.css -->
+<div class="preloader">
+    <svg class="circular" viewBox="25 25 50 50">
+        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
+    </svg>
+</div>
+<!-- Main wrapper  -->
+
+<div id="main-wrapper">
+    <!-- header header  -->
+    <div class="header">
+        <nav class="navbar top-navbar navbar-expand-md navbar-light">
+            <!-- Logo -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html">
+                    <!-- Logo icon -->
+                    <b><img src="images/logo.png" alt="homepage" class="dark-logo" /></b>
+                    <!--End Logo icon -->
+                    <!-- Logo text -->
+                    <span><img src="images/logo-text.png" alt="homepage" class="dark-logo" /></span>
+                </a>
+            </div>
+            <!-- End Logo -->
+            <div class="navbar-collapse">
+                <!-- toggle and nav items -->
+                <ul class="navbar-nav mr-auto mt-md-0">
+                    <!-- This is  -->
+                    <li class="nav-item hidden"> <a class="nav-link nav-toggler hidden-md-up text-muted  " href="javascript:void(0)"><i class="mdi mdi-menu"></i></a> </li>
+                    <li class="nav-item hidden m-l-10"> <a class="nav-link sidebartoggler hidden-sm-down text-muted  " href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
+                    <!-- Messages -->
+                    <li class="nav-item dropdown mega-dropdown hidden">
+                        <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-th-large"></i></a>
+                        <div class="dropdown-menu animated zoomIn">
+                            <ul class="mega-dropdown-menu row">
+
+                                <li class="col-lg-3  m-b-30">
+                                    <h4 class="m-b-20">CONTACT US</h4>
+                                    <!-- Contact -->
+                                    <form>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="exampleInputname1" placeholder="Enter Name">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" placeholder="Enter email">
+                                        </div>
+                                        <div class="form-group">
+                                            <textarea class="form-control" id="exampleTextarea" rows="3" placeholder="Message"></textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-info">Submit</button>
+                                    </form>
+                                </li>
+                                <li class="col-lg-3 col-xlg-3 m-b-30">
+                                    <h4 class="m-b-20">List style</h4>
+                                    <!-- List style -->
+                                    <ul class="list-style-none">
+                                        <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> This Is Another Link</a></li>
+                                        <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> This Is Another Link</a></li>
+                                        <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> This Is Another Link</a></li>
+                                        <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> This Is Another Link</a></li>
+                                        <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> This Is Another Link</a></li>
+                                    </ul>
+                                </li>
+                                <li class="col-lg-3 col-xlg-3 m-b-30">
+                                    <h4 class="m-b-20">List style</h4>
+                                    <!-- List style -->
+                                    <ul class="list-style-none">
+                                        <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> This Is Another Link</a></li>
+                                        <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> This Is Another Link</a></li>
+                                        <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> This Is Another Link</a></li>
+                                        <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> This Is Another Link</a></li>
+                                        <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> This Is Another Link</a></li>
+                                    </ul>
+                                </li>
+                                <li class="col-lg-3 col-xlg-3 m-b-30">
+                                    <h4 class="m-b-20">List style</h4>
+                                    <!-- List style -->
+                                    <ul class="list-style-none">
+                                        <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> This Is Another Link</a></li>
+                                        <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> This Is Another Link</a></li>
+                                        <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> This Is Another Link</a></li>
+                                        <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> This Is Another Link</a></li>
+                                        <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> This Is Another Link</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <!-- End Messages -->
+                </ul>
+                <!-- User profile and search -->
+                <ul class="navbar-nav my-lg-0">
+                    <!-- Profile -->
+                    <li class="nav-item dropdown">
+
+                        <button class="btn btn-warning">
+                            Fazer Login
+                        </button>
+
+                        @*<a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="images/users/5.jpg" alt="user" class="profile-pic" />
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right animated">
+                            <ul class="dropdown-user">   
+                                <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                            </ul>
+                        </div>*@
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <!-- End header header -->
+    <!-- Left Sidebar  -->
+    <div class="left-sidebar">
+        <!-- Sidebar scroll-->
+        <div class="scroll-sidebar">
+            <!-- Sidebar navigation-->
+            <nav class="sidebar-nav">
+                <ul id="sidebarnav">
+                    <li class="nav-devider"></li>
+                    <li class="nav-label">Home</li>
+                    <li>
+                        <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard <span class="label label-rouded label-primary pull-right">2</span></span></a>
+                    </li>                    
+                </ul>
+            </nav>
+            <!-- End Sidebar navigation -->
+        </div>
+        <!-- End Sidebar scroll-->
+    </div>
+    <!-- End Left Sidebar  -->
+    <!-- Page wrapper  -->
+    <div class="page-wrapper">
+        <!-- Bread crumb -->
+        <div class="row page-titles">
+            <div class="col-md-5 align-self-center">
+                <h3 class="text-primary">Perto de Você</h3>
+            </div>
+        </div>
+        <!-- End Bread crumb -->
+        <!-- Container fluid  -->
+        <div class="container-fluid">
+            
+            <div class="row">                                  
+                    @for (var i = 0; i < 10; i++)
+                    {
+                        <div class="col-md-3">
+                            @CardPet("https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/41426040/1/?bust=1524773995", "Belinha", "10km")
+                        </div>
+                    }                
+            </div>
+
+        </div>
+        <!-- End Container fluid  -->
+        <!-- footer -->
+        <footer class="footer"> © 2018 All rights reserved. Template designed by <a href="https://colorlib.com">Colorlib</a></footer>
+        <!-- End footer -->
+    </div>
+    <!-- End Page wrapper  -->
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+
+@helper CardPet(string urlImagem, string Nome, string distancia) {
+    <div class="card">
+        <img class="card-img-top" src="@urlImagem" alt="@Nome">
+        <div class="card-body">
+            <h5 class="card-title">@Nome, @distancia</h5>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+}

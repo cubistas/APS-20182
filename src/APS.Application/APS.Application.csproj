@@ -63,6 +63,7 @@
     <Compile Include="AutoMapper\ViewModelToDomain\UsuarioMap.cs" />
     <Compile Include="Interfaces\Common\IAppService.cs" />
     <Compile Include="Interfaces\IPostAppService.cs" />
+    <Compile Include="Interfaces\ISessionContext.cs" />
     <Compile Include="Interfaces\IUsuarioAppService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\Common\AnexoViewModel.cs" />
@@ -72,7 +73,9 @@
     <Compile Include="ViewModel\Posts\CurtidaViewModel.cs" />
     <Compile Include="ViewModel\Usuario\CadastroViewModel.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Implementations\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>

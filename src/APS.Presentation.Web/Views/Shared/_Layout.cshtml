@@ -28,11 +28,9 @@
     <![endif]-->
 </head>
 <body>
-   
+
 
     @RenderBody()
-
-
     <!-- End Wrapper -->
     <!-- All Jquery -->
     <script src="~/Scripts/lib/jquery/jquery.min.js"></script>
@@ -66,9 +64,9 @@
 
     <script src="~/Scripts/scripts.js"></script>
     <!-- scripit init-->
-    
+
     <script src="~/Scripts/custom.min.js"></script>
 
-
+    @RenderSection("scripts", required: false)
 </body>
 </html>

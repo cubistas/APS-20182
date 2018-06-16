@@ -32,6 +32,10 @@ namespace APS.Application.ViewModel.Usuario
 
         public string Telefone { get; set; }
 
+        public double Latitude { get; set; }
+
+        public double Longitude { get; set; }
+
         public eTipoUsuario TipoUsuario { get => eTipoUsuario.Padrao; }
 
         public AnexoViewModel ImagemPerfil { get; set; }

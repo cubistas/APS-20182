@@ -32,6 +32,15 @@ namespace APS.Presentation.Web.Controllers
             return View();
         }
 
+
+        public ActionResult AtualizarCoords(long latitude, long longitude)
+        {
+            HttpContext.Session["Lat"] = latitude;
+            HttpContext.Session["Long"] = longitude;
+
+            return new HttpStatusCodeResult(HttpStatusCode.OK);
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginUsuarioViewModel model)
@@ -46,6 +55,14 @@ namespace APS.Presentation.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest, "Usuario ou senha Inválido!");
             }
+        }
+
+        [HttpPost]
+        public ActionResult LogOff() {
+
+            Session.RemoveAll();
+
+            return new HttpStatusCodeResult(HttpStatusCode.OK);
         }
     }
 }

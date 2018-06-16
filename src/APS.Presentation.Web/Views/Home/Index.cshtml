@@ -1,5 +1,6 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@using APS.Application.ViewModel.Usuario;
+@{
+    ViewBag.Title = "Página Inicial";
 }
 <div>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -110,6 +111,8 @@
     </div>
 }
 
+@section Scripts{}
+
 @helper NavBar()
 {
 
@@ -134,12 +137,40 @@
                     <a class="nav-link" href="#">Sobre</a>
                 </li>
             </ul>
-            <form class="form-inline">
-                <input class="form-control mr-sm-2" type="search" placeholder="Procurar" aria-label="Search">
-                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Procurar</button>
-            </form>
 
-            <button type="button" class="btn btn-outline-light my-2 ml-2" data-toggle="modal" data-target="#modalLogin">Fazer Login</button>
+            @{
+                var usuarioLogado = (CadastroViewModel)Session["UsuarioLogado"];
+
+                if (usuarioLogado == null)
+                {
+                    <button type="button" class="btn btn-outline-light my-2 ml-2" data-toggle="modal" data-target="#modalLogin">Fazer Login</button>
+                }
+                else
+                {
+                    <div class="dropdown">
+                        <button class="btn btn-outline-light dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 200px;text-align: right;">
+                            
+                            @usuarioLogado.Nome
+
+                            &nbsp;
+
+                            <img class="img-round" src="data:image/png;base64, @usuarioLogado.ImagemPerfil.Arquivo" style="width: 50px; height: 50px">
+
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                            <a class="dropdown-item" href="#">
+                                <span class="fa fa-paw text-info"></span>
+                                &nbsp; Criar novo Post
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item pointer" id="btnLogOff">
+                                <span class="fa fa-power-off text-danger"></span>
+                                &nbsp; Sair
+                            </a>
+                        </div>
+                    </div>
+                }
+            }
         </div>
     </nav>
 

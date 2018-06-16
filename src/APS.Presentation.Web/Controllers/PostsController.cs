@@ -1,7 +1,9 @@
 ﻿using APS.Application.Interfaces;
+using APS.Application.ViewModel.Posts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -37,14 +39,13 @@ namespace APS.Presentation.Web.Controllers
 
         // POST: Post/Create
         [HttpPost]
-        public ActionResult Cadastrar(FormCollection collection)
+        public ActionResult Cadastrar(CadastroViewModel model)
         {
             try
             {
+                postAppService.Cadastrar(model);
 
-                postAppService.Cadastrar(new Application.ViewModel.Posts.CadastroViewModel());
-
-                return RedirectToAction("Index");
+                return new HttpStatusCodeResult(HttpStatusCode.OK);
             }
             catch
             {

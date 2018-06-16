@@ -21,6 +21,8 @@ namespace APS.Application.ViewModel.Posts
 
         public eStatusPost Status { get; set; }
 
+        public string[] ListaTags { get; set; }
+
         public AnimalViewModel Animal { get; set; }
 
         public ICollection<CurtidaViewModel> Curtidas { get; set; }

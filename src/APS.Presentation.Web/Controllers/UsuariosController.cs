@@ -3,7 +3,9 @@ using APS.Application.ViewModel.Usuario;
 using APS.Domain.Core.Exceptions;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -58,8 +60,32 @@ namespace APS.Presentation.Web.Controllers
         {            
             try
             {
-                usuarioAppService.Cadastrar(cadastroViewModel);
-                return RedirectToAction("Index");
+                //Para a Apresentacao
+                if (!cadastroViewModel.Senha.Equals(cadastroViewModel.ConfirmarSenha))
+                    throw new Exception("Senhas não são iguais!");
+
+                if(Request.Files.Count > 0)
+                {
+                    var arquivoImagem = Request.Files["FileUpload"];
+                    byte[] fileData = null;
+                    using (var binaryReader = new BinaryReader(arquivoImagem.InputStream))
+                    {
+                        fileData = binaryReader.ReadBytes(arquivoImagem.ContentLength);
+                    }
+
+                    cadastroViewModel.ImagemPerfil.Arquivo = Convert.ToBase64String(fileData);
+                }
+
+                if (String.IsNullOrEmpty(cadastroViewModel.Nome))
+                    throw new Exception("Informe o Nome do Usuario!");
+
+                if (String.IsNullOrEmpty(cadastroViewModel.ImagemPerfil.Arquivo))
+                    throw new Exception("Informe uma Imagem de Perfil!");
+
+                //usuarioAppService.Cadastrar(cadastroViewModel);
+                HttpContext.Session["UsuarioLogado"] = cadastroViewModel;
+
+                return new HttpStatusCodeResult(HttpStatusCode.OK);
             }
             catch (ServiceException e)
             {

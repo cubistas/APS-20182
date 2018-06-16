@@ -28,8 +28,8 @@
 }
 
 .image-placeholder {
-    width: 100%;
-    height: 80px;
+    width: 135px;
+    height: 150px;
     border: 2px dashed #cccccc;
     color: #cccccc;
     cursor: pointer;
@@ -41,7 +41,7 @@
 }
 
 .image-placeholder span {
-    line-height: 2.3;
+    line-height: 4.5;
 }
 
 .bootstrap-tagsinput {

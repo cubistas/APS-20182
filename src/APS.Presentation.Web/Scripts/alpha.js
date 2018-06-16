@@ -13,29 +13,55 @@ $('#abrirModalCadastroConta').click(function () {
     $('#modalCadastro').modal('show');
 });
 
+$('#btnLogOff').click(function () {
+    $.post('/Home/LogOff', null, function () {
+        window.location.reload();
+    })
+});
+
 var Post = new function () {
     let self = this;
 
+
+    $('#arquivosPet').change(function () {
+        self.RenderizarImagens();
+    });
+
+    $(document).on('click', 'span.image-close', function () {
+        $(this).parents('.wpImagem').remove();
+    });
+
     self.RenderizarImagens = function () {
+
         let inputImagens = $('#arquivosPet')[0];
+
         if (inputImagens.files) {
-            for (let i = 0; i < inputImagens.files.legth; i++) {
+
+            for (let i = 0; i < inputImagens.files.length; i++) {
                 let reader = new FileReader();
 
                 reader.onload = function (event) {
                     let template = $('<div>');
-                    template.addClass('col-md-4 my-2');
+                    template.addClass('col-md-4 my-2 wpImagem');
 
                     //templkate
 
+                    template.append($('<span class="fa fa-trash text-danger image-close"></span>'));
 
-                    template.append()
+                    let imagem = $('<img>');
+                    imagem.addClass('img-fluid');
 
-                    $($.parseHTML('<img>')).attr('src', event.target.result)
-                        .appendTo();
+                    imagem.attr('src', event.target.result);
+
+                    imagem.css('width', 135);
+                    imagem.css('height', 150);
+
+                    template.append(imagem);
+
+                    $('#wpImages').prepend(template);
                 }
 
-                reader.readAsDataURL(input.files[i]);
+                reader.readAsDataURL(inputImagens.files[i]);
             }
         }
     }
@@ -115,24 +141,38 @@ var Usuario = new function () {
     });
 
     let CriarModel = function () {
-        let model = {
-            Nome: $('#nomeUserCadastro').val(),
-            Email: $('#emailUserCadastro').val(),
-            Telefone: $('#foneUserCadastro').val(),
-            Senha: $('#senhaUserCadastro').val(),
-            ConfirmarSenha: $('#ConfirmarSenhaUserCadastro').val()
-        };
+
+        let model = new FormData();
+        model.append('Nome', $('#nomeUserCadastro').val());
+        model.append('Email', $('#emailUserCadastro').val());
+        model.append('Telefone', $('#foneUserCadastro').val());
+        model.append('Senha', $('#senhaUserCadastro').val());
+        model.append('ConfirmarSenha', $('#ConfirmarSenhaUserCadastro').val());
+        model.append('FileUpload', $('#arquivoUser')[0].files[0])
+        model.append('Latitude', latitude);
+        model.append('Longitude', longitude);
 
         return model;
     };
 
     self.CriarUsuario = function () {
         let data = CriarModel();
-        $.post('/Usuarios/Cadastrar', data, function (data) {
-            alert('Funfou!');
-        }).error(function (e) {
-            alert(e.statusText);
-        });
+
+
+        $.ajax({
+            type: 'post',
+            url: '/Usuarios/Cadastrar',
+            data: data,
+            dataType: 'json',
+            contentType: false,
+            processData: false,
+            success: function (response) {
+                window.location.reload();
+            },
+            error: function (error) {
+                alert(error.statusText);
+            }
+        });   
     };
 
 };

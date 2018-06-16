@@ -7,12 +7,12 @@ using System.Web.Mvc;
 
 namespace APS.Presentation.Web.Controllers
 {
-    public class PostController : Controller
+    public class PostsController : Controller
     {
 
         private IPostAppService postAppService;
 
-        public PostController(IPostAppService postAppService)
+        public PostsController(IPostAppService postAppService)
         {
             this.postAppService = postAppService;
         }

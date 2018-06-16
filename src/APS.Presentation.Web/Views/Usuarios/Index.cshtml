@@ -30,7 +30,7 @@
                 @Html.DisplayFor(modelItem => item.Login)
             </td>
             <td>
-                <img src="data:image;base64,@item.ImagemPerfil.Arquivo" width="80" height="80" />
+                @Html.ImageReder(item.ImagemPerfil.Arquivo, new { width = "80", height = "80" })
             </td>
             <td>
                 @Html.ActionLink("Edit", "Atualizar", new { id = item.Id }) |

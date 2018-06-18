@@ -9,8 +9,8 @@ namespace APS.Presentation.Web.Helpers
     {
         public static string DistanciaLatitudeLongitude(double lat, double lon) {
 
-            var lat2 = (double)HttpContext.Current.Session["Lat"];
-            var lon2 = (double)HttpContext.Current.Session["Lat"];
+            var lat2 = (double)HttpContext.Current.Session["Latitude"];
+            var lon2 = (double)HttpContext.Current.Session["Longitude"];
 
             Func<double, double> deg2rad = (deg) =>
             {

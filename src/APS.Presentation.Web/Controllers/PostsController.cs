@@ -1,5 +1,6 @@
 ﻿using APS.Application.Interfaces;
 using APS.Application.ViewModel.Posts;
+using APS.Presentation.Web.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,17 +40,26 @@ namespace APS.Presentation.Web.Controllers
 
         // POST: Post/Create
         [HttpPost]
-        public ActionResult Cadastrar(CadastroViewModel model)
+        public ActionResult Cadastrar(PostModel model)
         {
             try
             {
-                postAppService.Cadastrar(model);
+                var listaPosts = (List<PostModel>)HttpContext.Session["ListaPosts"]; 
+                if (listaPosts == null)
+                    listaPosts = new List<PostModel>();
+
+                model.Latitude = (double)HttpContext.Session["Latitude"];
+                model.Longitude = (double)HttpContext.Session["Longitude"];
+
+                listaPosts.Add(model);
+
+                HttpContext.Session["ListaPosts"] = listaPosts;
 
                 return new HttpStatusCodeResult(HttpStatusCode.OK);
             }
             catch
             {
-                return View();
+                return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
             }
         }
 
@@ -95,6 +105,22 @@ namespace APS.Presentation.Web.Controllers
             {
                 return View();
             }
+        }
+
+        public class PostModel {
+
+            public string Nome { get; set; }
+            public string Descricao { get; set; }
+            public IEnumerable<string> ListaTags { get; set; }
+            public IEnumerable<string> ListaImagens { get; set; }
+            public double Latitude { get; set; }
+            public double Longitude { get; set; }
+            public string Distancia { get {
+                    return HTMLUtils.DistanciaLatitudeLongitude(Latitude, Longitude);
+            } }
+
+            public PostModel() { }
+
         }
     }
 }

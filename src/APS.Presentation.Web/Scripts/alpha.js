@@ -27,6 +27,10 @@ var Post = new function () {
         self.RenderizarImagens();
     });
 
+    $('#btnCriarPost').click(function () {
+        self.CriarPost();
+    });
+
     $(document).on('click', 'span.image-close', function () {
         $(this).parents('.wpImagem').remove();
     });
@@ -49,7 +53,7 @@ var Post = new function () {
                     template.append($('<span class="fa fa-trash text-danger image-close"></span>'));
 
                     let imagem = $('<img>');
-                    imagem.addClass('img-fluid');
+                    imagem.addClass('img-fluid imagemPetHash');
 
                     imagem.attr('src', event.target.result);
 
@@ -71,7 +75,17 @@ var Post = new function () {
     }
 
     self.CriarPost = function () {
+        let model = {};
+        model.Nome = $('#nomePet').val();
+        model.Descricao = $('#descricaoPet').val();
+        model.ListaTags = $('#tagsPet').tagsinput('items');
+        model.ListaImagens = $('.imagemPetHash').attr('src');
 
+        console.log(model);
+
+        $.post('/Posts/Cadastrar/', model, function () {
+            window.location.reload();
+        })
     };
 
     self.UploudImage = function () {
@@ -176,3 +190,25 @@ var Usuario = new function () {
     };
 
 };
+
+
+$(function () {
+
+    Geolocalizacao.RetornarLatLong(function (data) {
+        let arr = data.loc.split(',');
+        var latitude = arr[0];
+        var long = arr[1];
+
+        var model = {
+            Latitude: latitude,
+            Longitude: long,
+            Cidade: data.city
+        };
+
+        $('#spanCidade').text(model.Cidade);
+
+        $.post('/Home/AtualizarCoords/', model, function (data) { });
+
+    });
+
+})

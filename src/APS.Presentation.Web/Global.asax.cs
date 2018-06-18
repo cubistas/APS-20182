@@ -9,6 +9,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using static APS.Presentation.Web.Controllers.PostsController;
 
 namespace APS.Presentation.Web
 {
@@ -22,7 +23,7 @@ namespace APS.Presentation.Web
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            AutoMapperConfig.RegisterMappings();
+            AutoMapperConfig.RegisterMappings();            
 
 #if DEBUG
             BundleTable.EnableOptimizations = false;

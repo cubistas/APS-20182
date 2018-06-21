@@ -59,7 +59,7 @@ namespace APS.Application.AppService
         {
             return mapper.Map<CadastroViewModel>(
                 usuarioService.BuscarTodos()
-                    .FirstOrDefault(x=> x.Login.Equals(email))
+                    .FirstOrDefault(x=> x.Email.Equals(email))
             );
         }
     }

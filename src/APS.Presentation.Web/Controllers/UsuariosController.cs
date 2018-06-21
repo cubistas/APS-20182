@@ -72,7 +72,8 @@ namespace APS.Presentation.Web.Controllers
                     {
                         fileData = binaryReader.ReadBytes(arquivoImagem.ContentLength);
                     }
-
+                    var extensao = arquivoImagem.FileName?.Split('.')?.LastOrDefault();
+                    cadastroViewModel.ImagemPerfil.Nome = $"{Guid.NewGuid().ToString()}.{extensao}";
                     cadastroViewModel.ImagemPerfil.Arquivo = Convert.ToBase64String(fileData);
                 }
 
@@ -82,7 +83,7 @@ namespace APS.Presentation.Web.Controllers
                 if (String.IsNullOrEmpty(cadastroViewModel.ImagemPerfil.Arquivo))
                     throw new Exception("Informe uma Imagem de Perfil!");
 
-                //usuarioAppService.Cadastrar(cadastroViewModel);
+                usuarioAppService.Cadastrar(cadastroViewModel);
                 HttpContext.Session["UsuarioLogado"] = cadastroViewModel;
 
                 return new HttpStatusCodeResult(HttpStatusCode.OK);

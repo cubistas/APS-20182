@@ -18,7 +18,7 @@ namespace APS.Domain.Core.Exceptions
         }
 
         public ServiceException(IEnumerable<string> mesagens) 
-            : base(mesagens !=null && mesagens.Any()? mesagens.Aggregate((a,b)=> $@"{a}\n{b}") : string.Empty)
+            : base(mesagens !=null && mesagens.Any()? mesagens.Aggregate((a,b)=> $@"{a} \n{b}") : string.Empty)
         {
             this.Mesagens = mesagens;
         }

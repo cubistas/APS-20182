@@ -56,7 +56,7 @@ namespace APS.Presentation.Web.Controllers
         public ActionResult Login(LoginUsuarioViewModel model)
         {
             var usuario = _serviceUsuarios.BuscarPorEmail(model.Email);
-            usuario = usuario == null ? (CadastroViewModel)HttpContext.Session["UsuarioLogado"] : usuario;
+            //usuario = usuario == null ? (CadastroViewModel)HttpContext.Session["UsuarioLogado"] : usuario;
             if (usuario != null && usuario.Senha.Equals(model.Senha) && usuario.Email.Equals(model.Email))
             {
                 HttpContext.Session["UsuarioLogado"] = usuario;

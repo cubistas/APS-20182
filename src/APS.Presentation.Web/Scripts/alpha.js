@@ -15,11 +15,15 @@ $('#abrirModalCadastroConta').click(function () {
 
 $('#btnLogOff').click(function () {
     $.post('/Home/LogOff', null, function () {
-        window.location.reload();
+        window.location = "/";
     })
 });
 
 $('#alert-error-message').alert();
+
+$("#alert-error-cadastro-usuario").hide();
+
+
 
 var Post = new function () {
     let self = this;
@@ -86,7 +90,7 @@ var Post = new function () {
         console.log(model);
 
         $.post('/Posts/Cadastrar/', model, function () {
-            window.location.reload();
+            window.location = "/";
         })
     };
 
@@ -160,6 +164,7 @@ var Usuario = new function () {
 
         let model = new FormData();
         model.append('Nome', $('#nomeUserCadastro').val());
+        model.append('Login', $('#nomeUserCadastro').val());
         model.append('Email', $('#emailUserCadastro').val());
         model.append('Telefone', $('#foneUserCadastro').val());
         model.append('Senha', $('#senhaUserCadastro').val());
@@ -171,12 +176,43 @@ var Usuario = new function () {
         return model;
     };
 
+    self.MonatarMensagemErro = function (mensagem) {
+        var listaMensagens = mensagem.split("\\n");
+        if (!listaMensagens || !listaMensagens.length)
+            return mensagem;
+
+        return
+            "<div class='col-md-12'>" + 
+                "<ul>" + 
+                    listaMensagens.map(function (e) {
+                        return "<li>" + e + "</li>";
+                    }) +
+                "</ul>" + 
+            "</div>";
+    };
+
     self.CriarUsuario = function () {
         let data = CriarModel();
 
         var sucesso = function (response) {
-            window.location.reload();
+            window.location = "/";
         }
+
+        var monatarMensagemErro = function (mensagem) {
+            var listaMensagens = mensagem.split("\\n");
+            if (!listaMensagens || listaMensagens.length < 2)
+                return mensagem;
+
+            return "<div class='row'><hr>" +
+                            "<div class='col-md-12'>" +
+                                "<ul>" +
+                                listaMensagens.map(function (e) {
+                                    return "<li>" + e + "</li>";
+                                }).join("") +
+                                "</ul>" +
+                            "</div>" + 
+                    "</div>";
+        };
 
         $.ajax({
             type: 'post',
@@ -192,8 +228,12 @@ var Usuario = new function () {
                 }
                 else {
 
-                    if (error.statusText)
-                        alert(error.statusText);
+                    if (error.statusText) {
+                        $("#alert-error-cadastro-usuario").show();
+                        $("#alert-error-cadastro-usuario-span").html(
+                            monatarMensagemErro(error.statusText)
+                        );
+                    }                        
                     else
                         alert("Ocorreu um erro");
                 }

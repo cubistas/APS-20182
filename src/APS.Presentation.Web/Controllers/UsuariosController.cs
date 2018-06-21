@@ -90,12 +90,12 @@ namespace APS.Presentation.Web.Controllers
             catch (ServiceException e)
             {
                 ViewBag.Erro = e.Message;
-                return View();
+                return new HttpStatusCodeResult(HttpStatusCode.InternalServerError, e.Message);
             }
             catch (Exception e)
             {
                 ViewBag.Erro = e.Message;
-                return View();
+                return new HttpStatusCodeResult(HttpStatusCode.InternalServerError, e.Message);
             }
         }
 
@@ -123,6 +123,11 @@ namespace APS.Presentation.Web.Controllers
                 return View();
             }
             
+        }
+
+        private ActionResult RedirecionarParaIndex()
+        {
+            return RedirectToAction("Index", "Home");
         }
     }
 }

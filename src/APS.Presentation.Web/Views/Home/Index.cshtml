@@ -34,7 +34,18 @@
 </div>
 
 @NavBar()
-
+@if (!string.IsNullOrEmpty(ViewBag.Erros))
+{
+    <div class="alert alert-danger alert-dismissible fade show" id="alert-error-message" role="alert">
+        <strong>Erro:</strong> 
+        <span id="alert-error-message-span">
+            @ViewBag.Erros
+        </span>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
 <div class="container pt-5">
     <section>
         <div class="row">
@@ -45,17 +56,18 @@
         </div>
         <div class="row slide-horizontal">
 
-            @foreach (var item in Model) {
+            @foreach (var item in Model)
+            {
                 @CardPet(item)
             }
-                        
+
         </div>
         <div class="row justify-content-center text-center">
-           <div class="col-md-3">
-               <button class="btn btn-outline-primary">
-                   Ver Mais
-               </button>
-           </div>
+            <div class="col-md-3">
+                <button class="btn btn-outline-primary">
+                    Ver Mais
+                </button>
+            </div>
         </div>
     </section>
 </div>
@@ -68,37 +80,37 @@
 @Html.Partial("_ModalCriarPost")
 
 @helper CardPet(APS.Presentation.Web.Controllers.PostsController.PostModel item)
-{
-    <div class="card mx-1" style="width: 17rem;">
-        <img class="card-img-top" alt="Image cap [100%x180]" style="height: 180px; width: 100%; display: block;" 
-             src="@item.ListaImagens.FirstOrDefault()" data-holder-rendered="true">
-        <span class="wrapper-curtida">
-            <span class="fa fa-heart fa-lg fa-fw"></span>
-        </span>
-        <div class="card-body">
-            @{
-                if (item.ListaTags != null)
-                {
-                    foreach (var tag in item.ListaTags)
+    {
+        <div class="card mx-1" style="width: 17rem;">
+            <img class="card-img-top" alt="Image cap [100%x180]" style="height: 180px; width: 100%; display: block;"
+                 src="@item.ListaImagens.FirstOrDefault()" data-holder-rendered="true">
+            <span class="wrapper-curtida">
+                <span class="fa fa-heart fa-lg fa-fw"></span>
+            </span>
+            <div class="card-body">
+                @{
+                    if (item.ListaTags != null)
                     {
-                        <span class="badge badge-primary">@tag</span>
+                        foreach (var tag in item.ListaTags)
+                        {
+                            <span class="badge badge-primary">@tag</span>
+                        }
                     }
                 }
-            }           
-            <p class="card-text">
-                <h4>
-                    @item.Nome
-                    <span class="text-muted">@item.Distancia</span>
-                </h4>
-                @item.Descricao
-            </p>
-            <span class="pull-right text-muted">
-                <span class="fa fa-eye m-1"></span>
-                <span class="fa fa-map m-1"></span>
-                <span class="fa fa-share-alt m-1"></span>
-            </span>
+                <p class="card-text">
+                    <h4>
+                        @item.Nome
+                        <span class="text-muted">@item.Distancia</span>
+                    </h4>
+                    @item.Descricao
+                </p>
+                <span class="pull-right text-muted">
+                    <span class="fa fa-eye m-1"></span>
+                    <span class="fa fa-map m-1"></span>
+                    <span class="fa fa-share-alt m-1"></span>
+                </span>
+            </div>
         </div>
-    </div>
 }
 
 @section Scripts{}
@@ -106,63 +118,63 @@
 @helper NavBar()
 {
 
-    <nav class="navbar sticky-top  navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">AlphaPet</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <nav class="navbar sticky-top  navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">AlphaPet</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="collapse navbar-collapse" id="navbarColor02">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Perto de você</a>
-                </li>
+            <div class="collapse navbar-collapse" id="navbarColor02">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Perto de você</a>
+                    </li>
+                    @{
+
+                        var usuarioLogado = (CadastroViewModel)Session["UsuarioLogado"];
+
+                        if (usuarioLogado != null)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="modal" data-target="#modalCriarPost">Criar Anuncio</a>
+                            </li>
+                        }
+                    }
+                </ul>
+
                 @{
 
-                    var usuarioLogado = (CadastroViewModel)Session["UsuarioLogado"];
-
-                    if (usuarioLogado != null)
+                    if (usuarioLogado == null)
                     {
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="modal" data-target="#modalCriarPost">Criar Anuncio</a>
-                        </li>
+                        <button type="button" class="btn btn-outline-light my-2 ml-2" data-toggle="modal" data-target="#modalLogin">Fazer Login</button>
+                    }
+                    else
+                    {
+                        <div class="dropdown">
+                            <button class="btn btn-outline-light dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 200px;text-align: right;">
+
+                                @usuarioLogado.Nome
+
+                                &nbsp;
+
+                                <img class="img-round" src="data:image/png;base64, @usuarioLogado.ImagemPerfil.Arquivo" style="width: 50px; height: 50px">
+
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                <a class="dropdown-item" data-toggle="modal" data-target="#modalCriarPost" href="#">
+                                    <span class="fa fa-paw text-info"></span>
+                                    &nbsp; Criar novo Post
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item pointer" id="btnLogOff">
+                                    <span class="fa fa-power-off text-danger"></span>
+                                    &nbsp; Sair
+                                </a>
+                            </div>
+                        </div>
                     }
                 }
-            </ul>
-
-            @{
-
-                if (usuarioLogado == null)
-                {
-                    <button type="button" class="btn btn-outline-light my-2 ml-2" data-toggle="modal" data-target="#modalLogin">Fazer Login</button>
-                }
-                else
-                {
-                    <div class="dropdown">
-                        <button class="btn btn-outline-light dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 200px;text-align: right;">
-                            
-                            @usuarioLogado.Nome
-
-                            &nbsp;
-
-                            <img class="img-round" src="data:image/png;base64, @usuarioLogado.ImagemPerfil.Arquivo" style="width: 50px; height: 50px">
-
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                            <a class="dropdown-item" href="#">
-                                <span class="fa fa-paw text-info"></span>
-                                &nbsp; Criar novo Post
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item pointer" id="btnLogOff">
-                                <span class="fa fa-power-off text-danger"></span>
-                                &nbsp; Sair
-                            </a>
-                        </div>
-                    </div>
-                }
-            }
-        </div>
-    </nav>
+            </div>
+        </nav>
 
 }

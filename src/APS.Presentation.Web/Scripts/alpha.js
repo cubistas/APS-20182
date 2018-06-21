@@ -19,6 +19,8 @@ $('#btnLogOff').click(function () {
     })
 });
 
+$('#alert-error-message').alert();
+
 var Post = new function () {
     let self = this;
 
@@ -172,19 +174,29 @@ var Usuario = new function () {
     self.CriarUsuario = function () {
         let data = CriarModel();
 
+        var sucesso = function (response) {
+            window.location.reload();
+        }
 
         $.ajax({
             type: 'post',
             url: '/Usuarios/Cadastrar',
             data: data,
-            dataType: 'json',
             contentType: false,
             processData: false,
-            success: function (response) {
-                window.location.reload();
-            },
+            dataType: 'json',
+            success: sucesso,
             error: function (error) {
-                alert(error.statusText);
+                if (error.status && error.status == 200) {
+                    sucesso();
+                }
+                else {
+
+                    if (error.statusText)
+                        alert(error.statusText);
+                    else
+                        alert("Ocorreu um erro");
+                }
             }
         });   
     };

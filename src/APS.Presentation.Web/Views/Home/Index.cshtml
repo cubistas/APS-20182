@@ -58,8 +58,11 @@
            </div>
         </div>
     </section>
-
 </div>
+
+<footer class="text-center pt-5 bg-dark mt-3 text-light">
+    Copyright FSG 2018
+</footer>
 
 @Html.Partial("_ModalLogin")
 @Html.Partial("_ModalCriarPost")
@@ -114,19 +117,20 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Perto de você</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Precisam de Amor</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="modal" data-target="#modalCriarPost">Criar Anuncio</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Sobre</a>
-                </li>
+                @{
+
+                    var usuarioLogado = (CadastroViewModel)Session["UsuarioLogado"];
+
+                    if (usuarioLogado != null)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="modal" data-target="#modalCriarPost">Criar Anuncio</a>
+                        </li>
+                    }
+                }
             </ul>
 
             @{
-                var usuarioLogado = (CadastroViewModel)Session["UsuarioLogado"];
 
                 if (usuarioLogado == null)
                 {
